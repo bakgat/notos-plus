@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: NotosPlus
+        psr4_prefix: NotosPlus
+        src_path: app

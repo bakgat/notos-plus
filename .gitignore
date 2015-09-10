@@ -1,0 +1,6 @@
+# Laravel
+/vendor /node_modules /bootstrap/compiled.php /packages Homestead.yaml Homestead.json .env
+#Composer
+composer.phar composer.lock
+# OS
+.DS_Store .idea/
