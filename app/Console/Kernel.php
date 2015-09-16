@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \NotosPlus\Console\Commands\Inspire::class,
+        \NotosPlus\Console\Commands\SeedCurricula::class,
     ];
 
     /**

@@ -149,7 +149,6 @@ return [
          * Bakgat\Notos Service Providers
          */
         Bakgat\Notos\NotosServiceProvider::class,
-
     ],
 
     /*

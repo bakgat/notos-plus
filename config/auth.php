@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => 'eloquent',
+    'driver' => 'notos',
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => NotosPlus\User::class,
+    'model' => Bakgat\Notos\Domain\Model\Identity\User::class,
 
     /*
     |--------------------------------------------------------------------------
