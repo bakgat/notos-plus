@@ -14,6 +14,7 @@
 <script src="/bower_components/angular-breadcrumb/dist/angular-breadcrumb.js"></script>
 <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
 <script src="/bower_components/checklist-model/checklist-model.js"></script>
+<script src="/bower_components/ng-tags-input/ng-tags-input.min.js"></script>
 <!-- end inject vendor:angular -->
 
 <!-- inject vendor:breeze -->

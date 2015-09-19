@@ -41,7 +41,7 @@ class SeedCurricula extends Command
     {
         if ($this->confirm('Sure to (re-)seed the tables? [y|N]')) {
             $seed = new Seed();
-            $seed->SeedAll();
+            $seed->SeedCurricula();
 
             $this->info('Seeded noTos+ database.');
         }

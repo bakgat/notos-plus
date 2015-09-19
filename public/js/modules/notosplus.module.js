@@ -13,6 +13,7 @@
             //app modules
             'notosplus.dashboard',
             'notosplus.manage',
-            'notosplus.library'
+            'notosplus.library',
+            'notosplus.curricula'
         ]);
 })();

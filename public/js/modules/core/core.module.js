@@ -13,6 +13,7 @@ angular
         'ngplus',
         'restangular',
         'checklist-model',
+        'ngTagsInput',
 
         //cross app modules
         'blocks.exception',

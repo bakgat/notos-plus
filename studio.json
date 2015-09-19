@@ -1,0 +1,6 @@
+{
+    "packages": {
+        "bakgat/serializer": "packages/bakgat/serializer",
+        "jms/serializer": "packages/bakgat/serializer"
+    }
+}

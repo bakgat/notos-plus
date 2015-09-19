@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \NotosPlus\Console\Commands\SeedCurricula::class,
+        \NotosPlus\Console\Commands\SeedWebsites::class,
     ];
 
     /**

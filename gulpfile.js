@@ -44,7 +44,11 @@ gulp.task('less', function () {
 
 var sources = [
     'public/js/modules/notosplus.module.js',
+    'public/js/modules/core/*module*.js',
+    'public/js/modules/data/*module*.js',
     'public/js/modules/**/*module*.js',
+    'public/js/modules/core/*.js',
+    'public/js/modules/data/*.js',
     'public/js/modules/**/*.js'
 ];
 

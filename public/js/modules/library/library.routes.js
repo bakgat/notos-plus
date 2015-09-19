@@ -40,11 +40,41 @@
                     url: '/websites',
                     views: {
                         'content@': {
-                            templateUrl: 'js/modules/library/websites/websites.html'
+                            templateUrl: 'js/modules/library/websites/websites.html',
+                            controller: 'WebsitesController',
+                            controllerAs: 'vm'
                         }
                     },
                     title: 'Websites'
                 }
+            },
+            {
+                state: 'library.websites.detail',
+                config: {
+                    url: '/:id',
+                    views: {
+                        'content@': {
+                            templateUrl: 'js/modules/library/websites/websitedetail.html',
+                            controller: 'WebsiteDetailController',
+                            controllerAs: 'vm'
+                        }
+                    },
+                    title: 'Website bewerken'
+                }
+            },
+            {
+                state: 'library.websites.detail.objectives',
+                config: {
+                    url:'/objectives',
+                    views: {
+                        'content@': {
+                            templateUrl: 'js/modules/curricula/objectives/select_objectives.html',
+                            controller: 'SelectObjectivesController',
+                            controllerAs: 'vm'
+                        }
+                    }
+                },
+                title: 'Doelen selecteren'
             }
         ];
     };

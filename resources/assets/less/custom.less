@@ -1,0 +1,27 @@
+.note-editor {
+  border: solid 1px @light-gray;
+  height: auto !important;
+}
+
+.join-separator {
+  display: inline-block;
+
+  &:not(:last-child):after {
+    display: inline-block;
+    width: 7px;
+    content: ', ';
+  }
+}
+
+/* TABLES */
+.table.table-narrow {
+  width: auto;
+  &td {
+    padding: 5px;
+  }
+}
+
+
+.disabled {
+  color: @text-disabled;
+}

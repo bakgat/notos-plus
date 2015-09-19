@@ -22,15 +22,10 @@
                                     <fa name="save"></fa>
                                     0pslaan
                                 </button>
-                                <button class="btn btn-danger btn-form-md pull-right" data-ng-click="vm.remove()">
+                                <button class="btn btn-danger btn-form-md pull-right" data-ng-if="vm.user.id" data-ng-click="vm.remove()">
                                     <fa name="trash"></fa>
                                     Verwijderen
                                 </button>
-
-                                <!--Need ng-hide for show/hide animations-->
-                                <span data-ng-show="vm.hasChanges" class="dissolve-animation flag-haschanges">
-                                    <fa name="asterisk asterisk-large" rel="tooltip" title="Je maakte wijzigingen"></fa>
-                                </span>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">

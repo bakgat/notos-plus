@@ -79,7 +79,7 @@
                     vm.loading = false;
                 })
                 .catch(function (error) {
-                    logger.error('Error while getting speaker id = ' + val + '; ' + error);
+                    logger.error('Error while getting user id = ' + val + '; ' + error);
                     goToUsers();
                 });
         }
@@ -102,6 +102,7 @@
                 goToUsers();
             }).catch(function (error) {
                 vm.isSaving = false;
+                logger.error('Kon gebruiker niet opslaan. [' + error + ']');
             });
 
         }

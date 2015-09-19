@@ -75,6 +75,8 @@
 
             return $modal.open(modalOptions).result;
         }
+
+
     }
 
     /* @ngInject */

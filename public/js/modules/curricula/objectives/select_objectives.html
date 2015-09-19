@@ -1,0 +1,43 @@
+<div class="modal-header clearfix">
+    <div class="col-sm-4">
+        <h3 class="modal-title">Doelen selecteren</h3>
+    </div>
+    <div class="col-sm-8 hidden-xs" >
+        <div class="input-group">
+            <input type="text" class="form-control pull-right"
+                   placeholder="Zoeken" aria-describedby="addon-search" ng-model="vm.search">
+            <span class="input-group-addon" id="addon-search"><i class="fa fa-search"></i></span>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <!--
+        # Objectives (cached server and client side) are loaded
+        # Pagination is added
+        # search functionality via form object
+        # selectedItems via form object are bound to checklist-model inputs.
+        # selectedItems are returned via promise
+     -->
+    <table class="table objectives table-condensed table-striped font-sm">
+        <tbody>
+        <tr ng-repeat="objective in vm.filtered | offset: (vm.currentPage-1)*vm.itemsPerPage | limitTo: vm.itemsPerPage">
+            <td style="width:16px;">
+                <input type="checkbox" checklist-model="vm.selectedItems" checklist-comparator="vm.compareObjective" checklist-value="objective">
+            </td>
+            <td class="col-sm-1">{{objective.code}}</td>
+            <td class="col-sm-11">{{objective.name}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <div class="col-sm-8">
+        <pagination total-items="vm.totalItems" ng-model="vm.currentPage" max-size="5"
+                    class="pagination-sm" boundary-links="true"
+                    data-first-text="«" data-last-text="»"  data-next-text="›" data-previous-text="‹"></pagination>
+    </div>
+    <div class="col-sm-4 btn-group-sm">
+        <button class="btn btn-default" ng-click="vm.cancel()">Annuleren</button>
+        <button class="btn btn-primary" ng-click="vm.save()">OK</button>
+    </div>
+</div>
