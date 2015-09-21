@@ -18,7 +18,7 @@
                 @endif
                 @if(str_contains(Request::server('SERVER_NAME'), 'klimtoren'))
                     <!--van VBS De Klimtoren-->
-                    van VBS De Klimtoren
+                    voor de scholengemeenschap De 4 Winden.
                 @endif
             </p>
 
@@ -53,7 +53,8 @@
                     De 4 Winden
                 @endif
                 @if(str_contains(Request::server('SERVER_NAME'), ['klimtoren']))
-                    VBS De Klimtoren
+                    <!--VBS De Klimtoren-->
+                    De 4 Winden
                     @endif
                     &copy; 2015
             </small>
