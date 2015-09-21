@@ -16,7 +16,7 @@
         return function (input, searchText) {
 
             if (searchText === undefined)
-                return input || false;
+           f
 
             var filtered = [],
                 filteredIds = [];
