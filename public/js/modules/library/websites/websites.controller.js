@@ -10,13 +10,17 @@
         .controller('WebsitesController', WebsitesController);
 
     /* @ngInject */
-    function WebsitesController(common, config, $state, Website) {
+    function WebsitesController(common, config, $state, Website, $scope, SearchWebsitesFilter) {
         /*jshint validthis: true */
         var vm = this;
 
         vm.websites = [];
         vm.filteredWebsites = [];
         vm.gotoWebsite = gotoWebsite;
+
+        vm.filter = {
+            terms: null
+        };
 
         var events = config.events;
 
@@ -49,5 +53,24 @@
             }
         }
 
+        $scope.$watch('vm.filter', doFilter, true);
+
+        function doFilter() {
+            if (vm.filter.terms && vm.filter.terms !== '') {
+                vm.filteredWebsites = SearchWebsitesFilter(vm.websites, vm.filter.terms);
+            } else {
+                vm.filteredWebsites = vm.websites;
+            }
+        }
     }
 })();
+/*
+ if (_.some(terms, function (t) {
+ return nameContainsTerm(website.name, t) ||
+ descriptionContainsTerm(website.description, t) ||
+ objectivesContainsTerm(website.objectives, t);
+ })) {
+ addUnique(website, filtered);
+ }
+
+ */

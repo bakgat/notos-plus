@@ -5,5 +5,6 @@
     angular
         .module('notosplus.core')
         .constant('toastr', toastr)
-        .constant('moment', moment);
+        .constant('moment', moment)
+        .constant('_', window._);
 })();

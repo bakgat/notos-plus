@@ -49,7 +49,7 @@
                                 <label class="col-lg-2 control-label">Beschrijving</label>
 
                                 <div class="col-lg-10">
-                                    <input type="email" placeholder="Beschrijving" class="form-control"
+                                    <input type="text" placeholder="Beschrijving" class="form-control"
                                            ng-model="vm.website.description">
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                     <tags-input ng-model="vm.website.tags" placeholder="Voeg een tag toe"
                                                 add-on-enter="true" add-on-comma="true" display-property="name"
                                                 add-on-space="true">
-                                        <auto-complete source="loadTags($query)"></auto-complete>
+                                        <auto-complete source="vm.loadTags($query)"></auto-complete>
                                     </tags-input>
                                 </div>
                             </div>

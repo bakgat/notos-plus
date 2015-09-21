@@ -14,7 +14,8 @@
     "atrauzzi/laravel-serializer": "dev-master",
     "beberlei/assert": "^2.4",
     "doctrine/doctrine-fixtures-bundle": "^2.2@dev",
-    "bakgat/serializer": "dev-master"
+    "bakgat/serializer": "dev-master",
+    "intervention/image": "^2.3@dev"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

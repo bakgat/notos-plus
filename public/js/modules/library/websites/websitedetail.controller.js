@@ -11,8 +11,8 @@
 
     /* @ngInject */
     function WebsiteDetailController($state, $stateParams,
-                                     common, config, $scope,
-                                     Website, Dialog, WebsiteDraft) {
+                                     common, config, Tag,
+                                     Website, Dialog, WebsiteDraft, _) {
         /*jshint validthis: true */
         var vm = this;
         var logger = common.logger;
@@ -29,6 +29,8 @@
         vm.website = null;
         vm.objectives_changed = false;
 
+        vm.tags = [];
+        vm.loadTags = loadTags;
 
 
         Object.defineProperty(vm, 'canSave', {get: canSave});
@@ -38,9 +40,24 @@
 
         function activate() {
 
+            preloadTags();
             getRequestedWebsite();
 
             common.$broadcast(events.controllerActivateSuccess);
+        }
+
+        function preloadTags() {
+            return Tag.getList().then(tagsCompleted);
+
+            function tagsCompleted(response) {
+                return vm.tags = response;
+            }
+        }
+
+        function loadTags(query) {
+            return _.select(vm.tags, function(t) {
+               return _.contains(t.name.toLowerCase(), query.toLowerCase());
+            });
         }
 
         function cancel() {
@@ -54,7 +71,7 @@
         function getRequestedWebsite() {
             vm.loading = true;
 
-            if(WebsiteDraft.load()) {
+            if (WebsiteDraft.load()) {
                 vm.website = WebsiteDraft.pull();
                 vm.objectives_changed = true;
                 vm.loading = false;

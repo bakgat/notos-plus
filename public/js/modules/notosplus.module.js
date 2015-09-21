@@ -14,6 +14,7 @@
             'notosplus.dashboard',
             'notosplus.manage',
             'notosplus.library',
-            'notosplus.curricula'
+            'notosplus.curricula',
+            'notosplus.tags'
         ]);
 })();
