@@ -14,5 +14,4 @@ composer.lock
 .idea/
 
 #travis
-bootstrap/autoload.php
-config/doctrine.php
+
