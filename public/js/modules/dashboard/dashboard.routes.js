@@ -31,13 +31,12 @@
                     url: '/dashboard',
                     views: {
                         'content@': {
-                            templateUrl: 'js/modules/dashboard/dashboard.html'
+                            templateUrl: 'js/modules/dashboard/dashboard.html',
+                            controller: 'DashboardController',
+                            controllerAs: 'vm'
                         }
                     },
-                    title: 'Dashboard',
-                    ncyBreadcrumb: {
-                        label: 'Dashboard'
-                    }
+                    title: 'Dashboard'
                 }
             }
         ];
