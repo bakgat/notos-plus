@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
 
-                            <tr data-ng-show="!vm.loading" ng-repeat="website in vm.filteredWebsites track by website.id">
+                            <tr data-ng-show="!vm.loading" ng-repeat="website in vm.filteredWebsites | orderBy:'-id' track by website.id">
                                 <td></td>
                                 <td><a ng-bind="website.name" ng-click="vm.gotoWebsite(website)"></a></td>
                                 <td><a ng-bind="website.url" ng-click="vm.gotoWebsite(website)"></a></td>

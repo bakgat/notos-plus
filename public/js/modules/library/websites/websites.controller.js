@@ -17,6 +17,7 @@
         vm.websites = [];
         vm.filteredWebsites = [];
         vm.gotoWebsite = gotoWebsite;
+        vm.refresh = refresh;
 
         vm.filter = {
             terms: null
@@ -26,6 +27,7 @@
 
         activate();
         ////////////////
+        $scope.$watch('vm.filter', doFilter, true);
 
         function activate() {
             common.$broadcast(events.controllerActivateSuccess);
@@ -53,7 +55,9 @@
             }
         }
 
-        $scope.$watch('vm.filter', doFilter, true);
+        function refresh() {
+            getWebsites(true);
+        }
 
         function doFilter() {
             if (vm.filter.terms && vm.filter.terms !== '') {
