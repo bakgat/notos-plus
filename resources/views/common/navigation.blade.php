@@ -81,22 +81,6 @@
                 <!-- .LIBRARY -->
             @endif
 
-            @if(Auth::user()->is('photo_moderator|sa'))
-                <!-- IMAGE LIBRARY -->
-                <li ng-class="{active: $state.includes('photos')}">
-                    <a ui-sref="photos.albums"><nt-fa name="image"></nt-fa> <span class="nav-label">Foto's</span></a>
-                </li>
-                <!-- .IMAGE LIBRARY -->
-            @endif
-
-            @if(Auth::user()->is('sa'))
-                <!-- MY GROUP -->
-                <li ng-class="{active: $state.includes('mygroup')}">
-                    <a href="#"><nt-fa name="group"></nt-fa> <span class="nav-label">Mijn klas</span></a>
-                </li>
-                <!-- .MY GROUP -->
-            @endif
-
 
         </ul>
 

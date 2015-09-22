@@ -28,7 +28,9 @@
                     url: '/books',
                     views: {
                         'content@': {
-                            templateUrl: 'js/modules/library/books/books.html'
+                            templateUrl: 'js/modules/library/books/books.html',
+                            controller: 'BooksController',
+                            controllerAs: 'vm'
                         }
                     },
                     title: 'Boeken'
