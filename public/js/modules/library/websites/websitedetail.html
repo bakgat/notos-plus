@@ -62,7 +62,7 @@
                                 <div class="col-lg-10">
                                     <tags-input ng-model="vm.website.tags" placeholder="Voeg een tag toe"
                                                 add-on-enter="true" add-on-comma="true" display-property="name"
-                                                add-on-space="true">
+                                                add-on-space="false" replace-spaces-with-dashes="false">
                                         <auto-complete source="vm.loadTags($query)"></auto-complete>
                                     </tags-input>
                                 </div>
