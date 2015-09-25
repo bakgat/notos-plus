@@ -21,32 +21,26 @@
                                 <a class="btn btn-info btn-xs" data-ng-click="vm.refresh()">
                                     <i class="fa fa-refresh"></i> <span>Vernieuwen</span>
                                 </a>
-                                <a class="btn btn-info btn-xs" ui-sref="library.books.detail({id:'new'})">
-                                    <i class="fa fa-plus"></i> <span>Boek toevoegen</span>
+                                <a class="btn btn-info btn-xs" ui-sref="portal.blogs.detail({id:'new'})">
+                                    <i class="fa fa-plus"></i> <span>Blog toevoegen</span>
                                 </a>
                             </div>
                         </div>
-                        <table class="table table-striped" nt-spinner spinner-show="vm.loading" colspan="4">
+                        <table class="table table-striped" nt-spinner spinner-show="vm.loading" colspan="3">
                             <thead>
                             <tr>
                                 <th></th>
                                 <th>Titel</th>
-                                <th>Auteur(s)</th>
-                                <th>Uitgeverij</th>
+                                <th>URL</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <tr data-ng-show="!vm.loading"data-ng-repeat="book in vm.filteredBooks | orderBy:'-id' track by book.id">
+                            <tr data-ng-show="!vm.loading"data-ng-repeat="blog in vm.filteredBlogs | orderBy:'name' track by blog.id">
                                 <td></td>
-                                <td><a data-ng-bind="book.name" data-ng-click="vm.gotoBook(book)"></a></td>
+                                <td><a data-ng-bind="blog.name" data-ng-click="vm.gotoBlog(blog)"></a></td>
                                 <td>
-                                    <a data-ng-repeat="author in book.authors"
-                                            data-ng-bind="author.fullName" data-ng-click="vm.byAuthor(author)"></a>
-                                </td>
-                                <td>
-                                    <a data-ng-repeat="publisher in book.publishers"
-                                        data-ng-bind="publisher.name" data-ng-click="vm.byPublisher(publisher)"></a>
+                                    <a data-ng-bind="blog.url" data-ng-click="vm.gotoBlog(blog)"></a>
                                 </td>
                             </tr>
                             </tbody>

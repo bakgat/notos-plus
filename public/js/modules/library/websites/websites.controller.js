@@ -68,13 +68,3 @@
         }
     }
 })();
-/*
- if (_.some(terms, function (t) {
- return nameContainsTerm(website.name, t) ||
- descriptionContainsTerm(website.description, t) ||
- objectivesContainsTerm(website.objectives, t);
- })) {
- addUnique(website, filtered);
- }
-
- */
