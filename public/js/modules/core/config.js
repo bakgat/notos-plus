@@ -4,6 +4,7 @@
     var core = angular.module('notosplus.core');
 
     core.config(toastrConfig);
+    core.config(momentConfig);
 
     /* @ngInject */
     function toastrConfig(toastr) {
@@ -13,6 +14,9 @@
         toastr.options.positionClass = 'toast-bottom-right';
     }
 
+    function momentConfig(moment) {
+        moment.locale('nl_BE');
+    }
     var keyCodes = {
         backspace: 8,
         tab: 9,

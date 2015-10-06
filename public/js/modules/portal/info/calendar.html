@@ -1,0 +1,72 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2 ng-bind="$state.title"></h2>
+
+        <div ncy-breadcrumb></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content">
+            <div class="row">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div class="col-sm-8">
+                            <input class="input-md form-control"
+                                   data-ng-model="vm.filter.terms"
+                                   placeholder="zoeken...">
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="pull-right">
+                                <a class="btn btn-info btn-xs" data-ng-click="vm.refresh()">
+                                    <i class="fa fa-refresh"></i> <span>Vernieuwen</span>
+                                </a>
+                                <a class="btn btn-info btn-xs" ui-sref="portal.calendar.event({id:'new'})">
+                                    <i class="fa fa-plus"></i> <span>Activiteit toevoegen</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="ibox-content inspinia-timeline">
+
+                        <div class="timeline-item" data-ng-repeat="(key, value) in vm.events">
+                            <div class="row">
+                                <div class="col-sm-3 date">
+                                    <i class="fa fa-calendar"></i>
+                                    {{key}}
+                                    <br/>
+                                </div>
+                                <div class="col-sm-9 content">
+                                    <div class="list-group">
+                                        <a class="list-group-item"data-ng-repeat="event in value" data-ng-click="vm.gotoEvent(event)">
+                                            <h3 class="list-group-item-heading" >
+                                                <small data-ng-bind="event.start | date:'HH.mmu'"></small>
+                                                <small data-ng-if="event.end"> - {{event.end | date : 'HH.mmu'}}</small>
+                                                <small>:</small>
+                                                <span data-ng-bind="event.name"></span>
+                                            </h3>
+
+                                            <p data-ng-if="event.description" data-ng-bind="event.description" class="list-group-item-text"></p>
+
+                                            <p data-ng-if="event.groups.length" class="small list-group-item-text">Voor:
+                                                <span data-ng-repeat="group in event.groups">{{group.name}}
+                                                    <span class="separator" data-ng-if="!$last">, </span>
+                                                </span>
+                                            </p>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

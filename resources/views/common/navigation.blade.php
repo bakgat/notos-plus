@@ -102,6 +102,11 @@
                             <nt-fa name="online"></nt-fa> Blogs
                         </a>
                     </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="portal.calendar">
+                            <nt-fa name="calendar"></nt-fa> Kalender
+                        </a>
+                    </li>
                 </ul>
                 </a>
             </li>
