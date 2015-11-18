@@ -12,9 +12,8 @@
 
     /* @ngInject */
     function Book(HTTPCache, ProfileService ) {
-        var service = HTTPCache.service('/organization/' + ProfileService.realm().id + '/books');
+        var service = HTTPCache.service('/organization/' + ProfileService.realm().id + '/upload');
 
         return service;
-
     }
 })();

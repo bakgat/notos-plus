@@ -17,6 +17,7 @@
     function momentConfig(moment) {
         moment.locale('nl_BE');
     }
+
     var keyCodes = {
         backspace: 8,
         tab: 9,

@@ -29,6 +29,7 @@
                                 </button>
                             </div>
                             <div class="hr-line-dashed"></div>
+                            <!-- Title -->
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Titel</label>
 
@@ -37,6 +38,9 @@
                                            data-ng-model="vm.website.name">
                                 </div>
                             </div>
+                            <!-- .title -->
+
+                            <!-- url -->
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Webadres</label>
 
@@ -45,6 +49,8 @@
                                            data-ng-model="vm.website.url">
                                 </div>
                             </div>
+                            <!-- .url -->
+                            <!-- description -->
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Beschrijving</label>
 
@@ -53,8 +59,7 @@
                                            ng-model="vm.website.description">
                                 </div>
                             </div>
-
-
+                            <!-- .description -->
                             <!-- tags -->
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Tags</label>
@@ -69,7 +74,7 @@
                             </div>
                             <!-- .tags -->
 
-
+                            <!-- objectives -->
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">
                                     <div>Doelen</div>
@@ -90,6 +95,28 @@
                                     <input type="hidden" name="obj_sniffer" data-ng-bind="vm.website.objectives.length">
                                 </div>
                             </div>
+                            <!-- .objectives -->
+
+                            <!-- image -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">
+                                    <div>Afbeelding</div>
+                                    <a class="btn btn-default btn-xs" ng-click="vm.editImage()">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                </label>
+
+                                <div class="col-lg-10">
+                                    <img ng-src="{{vm.website.image.url}}" border="0">
+                                    <input type="file" nv-file-select uploader="vm.imageUploader"/><br/>
+                                    <ul>
+                                        <li ng-repeat="item in vm.imageUploader.queue">
+                                            Title: <span ng-bind="item.file.name"></span><br/>
+                                            <button ng-click="item.upload()">upload</button>
+                                        </li>
+                                    </ul>
+                            </div>
+                            <!-- .image -->
                         </form>
                     </div>
                 </div>

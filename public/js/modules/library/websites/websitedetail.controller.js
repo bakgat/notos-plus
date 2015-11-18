@@ -12,7 +12,8 @@
     /* @ngInject */
     function WebsiteDetailController($state, $stateParams,
                                      common, config, Tag,
-                                     Website, Dialog, WebsiteDraft, _) {
+                                     Website, Dialog, WebsiteDraft, _,
+                                    FileUploader) {
         /*jshint validthis: true */
         var vm = this;
         var logger = common.logger;
@@ -28,6 +29,8 @@
         vm.gotoObjectives = gotoObjectives;
         vm.website = null;
         vm.objectives_changed = false;
+
+        vm.imageUploader = new FileUploader();
 
         vm.tags = [];
         vm.loadTags = loadTags;

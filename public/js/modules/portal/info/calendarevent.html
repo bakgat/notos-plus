@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content" data-nt-spinner data-spinner-show="vm.loading">
-                        <form class="form-horizontal" ng-show="!vm.loading" name="detail" >
+                        <form class="form-horizontal" ng-show="!vm.loading" name="detail">
                             <div class="">
                                 <button class="btn btn-info btn-form-md" data-ng-click="vm.cancel()">
                                     <fa name="undo"></fa>
@@ -34,17 +34,34 @@
 
                                 <div class="col-lg-10">
                                     <input type="text" placeholder="Titel" class="form-control" required
-                                           data-ng-model="vm.blog.name">
+                                           data-ng-model="vm.event.name">
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Webadres</label>
+                                <label class="col-lg-2 control-label">Start</label>
 
                                 <div class="col-lg-10">
-                                    <input type="text" placeholder="http://" class="form-control" required
-                                           data-ng-model="vm.blog.url">
+                                    <div class="input-group date">
+                                        <input type="datetime" class="form-control" date-time
+                                               data-ng-model="vm.event.start" data-view="date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="form-group" data-ng-show="!vm.event.allDay">
+                                <label class="col-lg-2 control-label">Eind</label>
+
+                                <div class="col-lg-10">
+                                    <div class="input-group date">
+                                        <input type="datetime" class="form-control" date-time
+                                               data-ng-model="vm.event.end" data-view="date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Beschrijving</label>
 
@@ -54,6 +71,15 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Voor groepen:</label>
+
+                                <div class="col-lg-10">
+                                    <label ng-repeat="group in vm.groups">
+                                        <input type="checkbox" checklist-model="user.roles" checklist-value="role"> {{role}}
+                                    </label>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

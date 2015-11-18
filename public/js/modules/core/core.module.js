@@ -14,6 +14,8 @@ angular
         'restangular',
         'checklist-model',
         'ngTagsInput',
+        'datePicker',
+        'angularFileUpload',
 
         //cross app modules
         'blocks.exception',

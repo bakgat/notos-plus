@@ -12,7 +12,7 @@ require_once __DIR__ . "/vendor/autoload.php";
     __DIR__ . '/vendor/jms/serializer/src'
 );
 $isDevMode = true;
-$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/vendor/bakgat/notos/src/Domain/Model"), $isDevMode, null, null, false);
+$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/packages/bakgat/notos/src/Domain/Model"), $isDevMode, null, null, false);
 
 $conn = [
     'driver' => 'mysqli',
@@ -22,6 +22,11 @@ $conn = [
     'password' => 'root',
     'prefix' => ''
 ];
+/*$conn = [
+    'driver' => 'pdo_sqlite',
+    'path' => __DIR__.'/database/testing/notostest.sqlite',
+    'prefix' => '',
+];*/
 // obtaining the entity manager
 $entityManager = \Doctrine\ORM\EntityManager::create($conn, $config);
 

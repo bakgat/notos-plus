@@ -64,10 +64,10 @@ class Organization extends \Bakgat\Notos\Domain\Model\Identity\Organization impl
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'domain_name', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'avatar', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'user_roles', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
+            return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'domain_name', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'avatar', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'user_roles', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'assets', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'domain_name', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'avatar', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'user_roles', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
+        return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'domain_name', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'avatar', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'user_roles', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Organization' . "\0" . 'assets', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
     }
 
     /**
@@ -237,6 +237,39 @@ class Organization extends \Bakgat\Notos\Domain\Model\Identity\Organization impl
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'avatar', array());
 
         return parent::avatar();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function assets()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'assets', array());
+
+        return parent::assets();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addAsset(\Bakgat\Notos\Domain\Model\Resource\Asset $asset)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAsset', array($asset));
+
+        return parent::addAsset($asset);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeAsset(\Bakgat\Notos\Domain\Model\Resource\Asset $asset)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAsset', array($asset));
+
+        return parent::removeAsset($asset);
     }
 
     /**

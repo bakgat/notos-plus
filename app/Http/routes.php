@@ -12,11 +12,11 @@
 */
 
 
-
 Route::get('/', [
     'uses' => 'IndexController@getApp',
     'as' => 'index'
 ]);
+
 
 
 Blade::setContentTags('<%', '%>');        // for variables and all things Blade

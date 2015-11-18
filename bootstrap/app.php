@@ -41,6 +41,7 @@ $app->singleton(
     NotosPlus\Exceptions\Handler::class
 );
 
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

@@ -10,7 +10,7 @@
         .controller('ShellController', ShellController);
 
     /* @ngInject */
-    function ShellController(Init, $rootScope, config, ProfileService, logger) {
+    function ShellController(Init, $rootScope, config, ProfileService, logger, $q) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -31,8 +31,17 @@
             if (!Init.isInitialized()) {
                 vm.showSplash = true;
                 Init.initializing(true);
-                getProfile().then(function (data) {
 
+                //loadProfile //loadGroups (aka load realm defaults)
+                $q.all([loadProfile()]).then(function () {
+                    initialized();
+                });
+
+
+            }
+
+            function loadProfile() {
+                return getProfile().then(function (data) {
                     vm.profile = data;
                     vm.profile.fullName = vm.profile.first_name + ' ' + vm.profile.last_name;
                     //vm.profile.organizations = profile.organizations;
@@ -41,8 +50,6 @@
                         vm.profile.avatar ||
                         (vm.profile.gender === 'F' ? '/img/user/female.png' : '/img/user/male.png') ||
                         '/img/user/male.png';
-
-                    initialized();
                 });
             }
         }
@@ -60,7 +67,7 @@
 
         $rootScope.$on('$stateChangeStart',
             function (event, next, current) {
-                toggleSpinner(true);
+                //toggleSpinner(true);
             }
         );
 

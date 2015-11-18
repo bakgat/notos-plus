@@ -37,6 +37,12 @@
             'password'  => env('DB_PASSWORD', 'root'),
             'prefix' => ''
         ],
+
+        'sqlite' => [
+            'driver' => 'sqlite',
+            'database' => storage_path('database.testdb.sqlite'),
+            'prefix' => '',
+        ]
     ],
 
     /*

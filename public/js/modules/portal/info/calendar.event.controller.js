@@ -10,7 +10,7 @@
         .controller('CalendarEventController', CalendarEventController);
 
     /* @ngInject */
-    function CalendarEventController(common, config, CalendarEvent, $state, $stateParams) {
+    function CalendarEventController(common, config, CalendarEvent, $state, $stateParams, moment) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -19,6 +19,7 @@
         vm.save = save;
         vm.cancel = cancel;
         vm.isSaving = false;
+        vm.event = null;
 
         Object.defineProperty(vm, 'canSave', {get: canSave});
 
@@ -50,6 +51,9 @@
 
             function eventComplete(data) {
                 if (data) {
+                    data.start = new Date(data.start);
+                    data.end = data.end ? new Date(data.end) : null;
+                    console.log(data.end);
                     vm.event = data;
                     vm.loading = false;
                     return vm.event;
