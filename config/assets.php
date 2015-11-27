@@ -8,7 +8,8 @@
 
 return [
     'uploads' => [
-        'storage' => 'local',
-        'webpath' => '/uploads',
+        'storage' => 'images',
+        'thumbs' => '/_thumbs',
+        'webpath' => '/upload',
     ],
 ];

@@ -12,8 +12,7 @@
     /* @ngInject */
     function WebsiteDetailController($state, $stateParams,
                                      common, config, Tag,
-                                     Website, Dialog, WebsiteDraft, _,
-                                    FileUploader) {
+                                     Website, Dialog, WebsiteDraft, _) {
         /*jshint validthis: true */
         var vm = this;
         var logger = common.logger;
@@ -26,11 +25,12 @@
         vm.isSaving = false;
         vm.save = save;
         vm.remove = remove;
+        vm.insertImage = insertImage;
         vm.gotoObjectives = gotoObjectives;
+
         vm.website = null;
         vm.objectives_changed = false;
-
-        vm.imageUploader = new FileUploader();
+        vm.image_changed = false;
 
         vm.tags = [];
         vm.loadTags = loadTags;
@@ -58,8 +58,8 @@
         }
 
         function loadTags(query) {
-            return _.select(vm.tags, function(t) {
-               return _.contains(t.name.toLowerCase(), query.toLowerCase());
+            return _.select(vm.tags, function (t) {
+                return _.contains(t.name.toLowerCase(), query.toLowerCase());
             });
         }
 
@@ -143,6 +143,16 @@
                     Dialog.confirmationDialog('Verwijderen mislukt',
                         'Het verwijderen van ' + vm.website.name + ' is mislukt. Probeer het later opnieuw.');
                 });
+            }
+        }
+
+        function insertImage() {
+            return Dialog.selectImageDialog()
+                .then(insertImage);
+
+            function insertImage(response) {
+                vm.website.image = response.file;
+                vm.image_changed = true;
             }
         }
 

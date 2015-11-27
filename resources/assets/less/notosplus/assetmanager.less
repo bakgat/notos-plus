@@ -1,0 +1,34 @@
+.grid-image {
+  height: auto;
+  width: auto;
+  display: block;
+  background-size: contain;
+  background-color: #f2f2f2;
+  border: 1px solid #e0e0e0;
+  background-position: 50% 50%;
+  margin-bottom: 12px;
+  padding-bottom: 66.67%;
+  background-repeat: no-repeat;
+  .opacity(.7);
+
+  &:hover {
+    .opacity(.9);
+  }
+}
+
+.file-list div.selected .grid-image {
+  border: 1px solid @color-info;
+  .opacity(1);
+}
+
+.drop-zone {
+  border: dashed 2px @color-primary;
+  min-width: 100px;
+  min-height: 100px;
+  display: block;
+
+}
+
+.drop-zone-hover {
+  border: dashed 2px @color-danger;
+}

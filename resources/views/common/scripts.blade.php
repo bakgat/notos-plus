@@ -1,4 +1,5 @@
 <!-- inject vendor:scripts -->
+
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/angular/angular.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -15,7 +16,6 @@
 <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
 <script src="/bower_components/checklist-model/checklist-model.js"></script>
 <script src="/bower_components/ng-tags-input/ng-tags-input.min.js"></script>
-<script src="/bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
 <!-- end inject vendor:angular -->
 
 <!-- inject vendor:breeze -->
@@ -31,6 +31,8 @@
 <script src="/bower_components/moment/min/moment-with-locales.min.js"></script>
 <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 <!-- end inject vendor:scripts -->
+
+<script src="/bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>
 
 <!-- inject app:scripts -->
 <script src="/js/app.min.js"></script>

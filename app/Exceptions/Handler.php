@@ -50,20 +50,22 @@ class Handler extends ExceptionHandler
         if ($e instanceof NotosException) {
 
             $e = new HttpException($e->getStatus(), $e->getMessage(), $e->getPrevious(), [], $e->getCode());
+
+            $response = new JsonResponse(
+                $e->getMessage(),
+                $e->getStatusCode(),
+                []
+            );
+            $response->exception = $e;
+
+            return $response;
         }
 
 
         if ($e instanceof ModelNotFoundException) {
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
-        $response = new JsonResponse(
-            $e->getMessage(),
-            $e->getStatusCode(),
-            []
-        );
-        $response->exception = $e;
 
-        return $response;
-        //return parent::render($request, $e);
+        return parent::render($request, $e);
     }
 }

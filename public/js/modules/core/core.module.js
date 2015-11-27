@@ -1,4 +1,3 @@
-
 angular
     .module('notosplus.core', [
         //Angular
@@ -15,7 +14,7 @@ angular
         'checklist-model',
         'ngTagsInput',
         'datePicker',
-        'angularFileUpload',
+        'ngFileUpload',
 
         //cross app modules
         'blocks.exception',

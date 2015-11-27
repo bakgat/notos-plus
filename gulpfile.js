@@ -17,6 +17,7 @@ var notify = require('gulp-notify');
 
 
 var sloc = require('gulp-sloc');
+var angularTemplates = require('gulp-angular-templates');
 
 /*
  |--------------------------------------------------------------------------
@@ -104,6 +105,12 @@ var sloc_sources = [
 gulp.task('sloc', function() {
     gulp.src(sloc_sources)
         .pipe(sloc());
+});
+
+gulp.task('ngtemplates', function () {
+    return gulp.src('public/partials/**/*.html')
+        .pipe(angularTemplates())
+        .pipe(gulp.dest('public/build'));
 });
 
 gulp.task('watch', function () {

@@ -12,6 +12,7 @@
 
     function common($q, $rootScope, $timeout, logger) {
         var throttles = {};
+        var csrf = null;
 
         var service = {
             // common angular dependencies
@@ -22,7 +23,8 @@
             isNumber: isNumber,
             debouncedThrottle: debouncedThrottle,
             logger: logger,
-            textContains: textContains
+            textContains: textContains,
+            csrfToken: csrfToken
         }
 
         return service;
@@ -57,6 +59,25 @@
 
         function textContains(text, searchText) {
             return text && -1 !== text.toLowerCase().indexOf(searchText.toLowerCase());
+        }
+
+        function csrfToken() {
+            return csrf || getCsrfToken();
+            ////////////////////
+
+            function getCsrfToken() {
+
+                var metas = document.getElementsByTagName('meta');
+
+                for (var i = 0; i < metas.length; i++) {
+                    var meta = metas[i];
+                    if (meta.getAttribute('name') == "csrf_token") {
+                        csrf = meta.getAttribute('content');
+                    }
+                }
+
+                return csrf;
+            }
         }
     }
 })();

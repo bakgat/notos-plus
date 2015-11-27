@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         \NotosPlus\Console\Commands\SeedCurricula::class,
         \NotosPlus\Console\Commands\SeedWebsites::class,
         \NotosPlus\Console\Commands\SeedStartup::class,
+        \NotosPlus\Console\Commands\SeedAssets::class,
     ];
 
     /**
