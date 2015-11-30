@@ -229,17 +229,18 @@
 
         function uploadFiles(files) {
 
-            $scope.queue.unshift(files);
 
             if (files && files.length) {
+                angular.forEach(files, function (file) {
+                    file.loading = true;
+                    $scope.queue.unshift(file);
+                });
 
-                Upload.upload(  {
+                Upload.upload({
                     url: 'api/upload',
                     data: {file: files},
                     headers: {'X-CSRF-TOKEN': common.csrfToken()}
-                }).progress(uploadProgress)
-                    .success(uploadComplete)
-                    .error(uploadError);
+                }).then(uploadComplete, uploadError, uploadProgress);
             }
 
             function uploadProgress(evt) {
@@ -253,6 +254,7 @@
                     $scope.files.unshift(asset);
                 });
                 $scope.queue = [];
+
             }
 
             function uploadError(response) {
@@ -367,7 +369,9 @@
             '           <div class="col-md-8 col-xs-12">' +
             '                <div class="file-list">' +
             '                   <div class="col-md-2 col-xs-4" data-ng-repeat="file in queue">' +
-            '                       <img class="grid-image thumb" ngf-thumbnail="file" >' +
+            '' +
+            '                       <div class="loader-image" data-ng-if="file.loading"><i class="fa fa-spinner fa-spin"></i></div>' +
+            '                       <img class="grid-image thumb" ngf-thumbnail="file" data-ng-if="!file.loading">' +
             '                   </div>' +
             '                   <div class="col-md-2 col-xs-4" data-ng-repeat="file in files" ' +
             '                       data-ng-click="itemClicked(file)" data-ng-class="{\'selected\': file.id == selectedFile.id }">' +

@@ -107,8 +107,9 @@
                                 </label>
 
                                 <div class="col-lg-10">
-                                    <img ng-src="{{vm.website.image.thumbpath || '/img/icons/icon-chain-64.png'}}" data-ng-click="vm.insertImage()" border="0">
-
+                                    <a data-ng-click="vm.insertImage()" class="thumbnail" style="max-width:150px;">
+                                        <img ng-src="{{vm.website.image.thumbpath || '/img/icons/icon-chain-64.png'}}">
+                                    </a>
                                     <!--<input type="file" nv-file-select uploader="vm.imageUploader"/><br/>
                                     <ul>
                                         <li ng-repeat="item in vm.imageUploader.queue">
