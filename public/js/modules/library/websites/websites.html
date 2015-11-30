@@ -29,15 +29,22 @@
                         <table class="table table-striped" nt-spinner spinner-show="vm.loading" colspan="3">
                             <thead>
                             <tr>
-                                <th></th>
+                                <th class="hidden-xs"></th>
                                 <th>Titel</th>
                                 <th>Adres</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <tr data-ng-show="!vm.loading" ng-repeat="website in vm.filteredWebsites | orderBy:'-id' track by website.id">
-                                <td></td>
+                            <tr data-ng-show="!vm.loading"
+                                ng-repeat="website in vm.filteredWebsites | orderBy:'-id' track by website.id">
+                                <td class="hidden-xs" style="width:100px;">
+                                    <a class="thumbnail" data-ng-if="website.image.thumbpath"
+                                       ng-click="vm.gotoWebsite(website)">
+                                        <img ng-src="{{website.image.thumbpath}}"
+                                             style="max-width:100px; max-height:50px;">
+                                    </a>
+                                </td>
                                 <td><a ng-bind="website.name" ng-click="vm.gotoWebsite(website)"></a></td>
                                 <td><a ng-bind="website.url" ng-click="vm.gotoWebsite(website)"></a></td>
                             </tr>
