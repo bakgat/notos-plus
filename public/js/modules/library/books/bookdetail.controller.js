@@ -193,7 +193,7 @@
         }
 
         function insertImage() {
-            return Dialog.selectImageDialog()
+            return Dialog.selectImageDialog('book')
                 .then(insertImage);
 
             function insertImage(response) {

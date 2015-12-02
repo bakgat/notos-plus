@@ -14,22 +14,27 @@
     function Asset(HTTPCache, ProfileService) {
         var service = {
             getList: getList,
-            getImagesForWebsites: getImagesForWebsites
+            getImagesForWebsites: getImagesForWebsites,
+            getImages: getImages
         }
 
         return service;
         ////////////////////
 
-        function getList(type) {
+        function getList(mime) {
             if (!type) {
                 return HTTPCache.service(_baseUrl()).getList();
             } else {
-                return HTTPCache.service(_baseUrl() + '/mime/' + type).getList();
+                return HTTPCache.service(_baseUrl() + '/mime/' + mime).getList();
             }
         }
 
         function getImagesForWebsites() {
             return HTTPCache.service('/websites/assets/mime/image').getList();
+        }
+
+        function getImages(type) {
+            return HTTPCache.service(_baseUrl() + '/mime/image/type/' + type).getList();
         }
 
         function _baseUrl() {

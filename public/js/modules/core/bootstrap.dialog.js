@@ -101,7 +101,7 @@
             return $modal.open(modalOptions).result;
         }
 
-        function selectImageDialog(title) {
+        function selectImageDialog(type) {
             var modalOptions = {
                 templateUrl: 'selectImageDialog.tpl.html',
                 controller: SelectImageModalInstance,
@@ -110,7 +110,7 @@
                 resolve: {
                     options: function () {
                         return {
-                            title: title
+                            type: type
                         }
                     }
                 }
@@ -182,6 +182,7 @@
     function SelectImageModalInstance($scope, $modalInstance, options, Asset, Upload, common, Dialog, $http) {
         $scope.title = options.title || 'Selecteer een afbeelding';
         $scope.files = options.files || [{url: '/img/icons/icon-chain-64.png'}];
+        $scope.type = options.type || null;
         $scope.queue = [];
         $scope.selectedFile = {};
         $scope.progress = 0;
@@ -199,7 +200,11 @@
         ///////////////////////////////////////////////////////
 
         function load() {
-            Asset.getImagesForWebsites().then(imagesCompleted);
+            if ($scope.type === null) {
+                Asset.getImagesForWebsites().then(imagesCompleted);
+            } else {
+                Asset.getImages($scope.type).then(imagesCompleted);
+            }
             function imagesCompleted(response) {
                 $scope.files = response;
             }
