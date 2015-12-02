@@ -28,17 +28,15 @@
 
             RestangularConfigurer.setErrorInterceptor(
                 function (response) {
-                    console.log(response);
                     var s = response.status;
                     if (s === 400 || s === 404 || s === 409 || s === 500) {
                         logger.error(response.data, response, response.statusText);
 
                     } else if (s === 401 || s === 403 || s === 410 ||
                                 s === 412 || s === 415 || s === 422) {
-                        logger.warning(response.statusText, response, response.statusText);
-
+                        logger.warning(response.data, response, response.statusText);
                     } else {
-                        logger.error(response.statusText + ' - Fout ' + response.status, response, 'Fout');
+                        logger.error(response.data + ' - Fout ' + s, response, 'Fout');
                     }
 
                     // Stop the promise chain.

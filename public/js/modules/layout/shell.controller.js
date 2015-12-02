@@ -79,7 +79,6 @@
         $rootScope.$on(events.realmChanged,
             function (scope, realm) {
                 vm.realm = realm;
-                console.log(vm.realm);
             });
 
         function initialized() {
