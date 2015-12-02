@@ -21,6 +21,8 @@
         vm.loading = false;
         vm.isSaving = false;
 
+        vm.image_changed = false;
+
         vm.book = null;
         vm.authors = [];
         vm.publishers = [];
@@ -34,6 +36,7 @@
         vm.loadPublishers = loadPublishers;
         vm.loadTags = loadTags;
         vm.findIsbn = findIsbn;
+        vm.insertImage = insertImage;
 
         Object.defineProperty(vm, 'canSave', {get: canSave});
 
@@ -186,6 +189,16 @@
                 function confirmation() {
                     $state.go('library.books.detail', {id: response.id});
                 }
+            }
+        }
+
+        function insertImage() {
+            return Dialog.selectImageDialog()
+                .then(insertImage);
+
+            function insertImage(response) {
+                vm.book.image = response.file;
+                vm.image_changed = true;
             }
         }
 

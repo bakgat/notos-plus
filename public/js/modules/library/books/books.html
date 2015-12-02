@@ -29,7 +29,7 @@
                         <table class="table table-striped" nt-spinner spinner-show="vm.loading" colspan="4">
                             <thead>
                             <tr>
-                                <th></th>
+                                <th class="hidden-xs"></th>
                                 <th>Titel</th>
                                 <th>Auteur(s)</th>
                                 <th>Uitgeverij</th>
@@ -39,7 +39,13 @@
 
                             <tr data-ng-show="!vm.loading"
                                 data-ng-repeat="book in vm.filteredBooks | orderBy:'-id' track by book.id">
-                                <td></td>
+                                <td class="hidden-xs" style="width:100px;">
+                                    <a class="thumbnail" data-ng-if="book.image.thumbpath"
+                                       ng-click="vm.gotoBook(book)">
+                                        <img ng-src="{{book.image.thumbpath}}"
+                                             style="max-width:100px; max-height:50px;">
+                                    </a>
+                                </td>
                                 <td><a data-ng-bind="book.name" data-ng-click="vm.gotoBook(book)"></a></td>
                                 <td>
                                     <ul class="list-unstyled list-inline">
