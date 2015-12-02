@@ -37,16 +37,21 @@
                             </thead>
                             <tbody>
 
-                            <tr data-ng-show="!vm.loading"data-ng-repeat="book in vm.filteredBooks | orderBy:'-id' track by book.id">
+                            <tr data-ng-show="!vm.loading"
+                                data-ng-repeat="book in vm.filteredBooks | orderBy:'-id' track by book.id">
                                 <td></td>
                                 <td><a data-ng-bind="book.name" data-ng-click="vm.gotoBook(book)"></a></td>
                                 <td>
-                                    <a data-ng-repeat="author in book.authors"
-                                            data-ng-bind="author.full_name" data-ng-click="vm.byAuthor(author)"></a>
+                                    <ul class="list-unstyled list-inline">
+                                        <li data-ng-repeat="author in book.authors">
+                                            <a data-ng-bind="author.full_name" data-ng-click="vm.byAuthor(author)"></a>
+                                            <span data-ng-if="!$last">, </span>
+                                        </li>
+                                    </ul>
                                 </td>
                                 <td>
                                     <a data-ng-repeat="publisher in book.publishers"
-                                        data-ng-bind="publisher.full_name" data-ng-click="vm.byPublisher(publisher)"></a>
+                                       data-ng-bind="publisher.full_name" data-ng-click="vm.byPublisher(publisher)"></a>
                                 </td>
                             </tr>
                             </tbody>
