@@ -37,6 +37,20 @@
                 }
             },
             {
+                state: 'library.books.detail',
+                config: {
+                    url: '/:id',
+                    views: {
+                        'content@': {
+                            templateUrl: 'js/modules/library/books/bookdetail.html',
+                            controller: 'BookDetailController',
+                            controllerAs: 'vm'
+                        }
+                    },
+                    title: 'Boek bewerken'
+                }
+            },
+            {
                 state: 'library.websites',
                 config: {
                     url: '/websites',
@@ -67,7 +81,7 @@
             {
                 state: 'library.websites.detail.objectives',
                 config: {
-                    url:'/objectives',
+                    url: '/objectives',
                     views: {
                         'content@': {
                             templateUrl: 'js/modules/curricula/objectives/select_objectives.html',

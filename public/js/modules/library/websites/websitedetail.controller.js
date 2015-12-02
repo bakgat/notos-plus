@@ -19,20 +19,22 @@
         var $q = common.$q;
         var events = config.events;
 
-        vm.cancel = cancel;
         vm.hasChanges = false;
         vm.loading = false;
         vm.isSaving = false;
+
+        vm.objectives_changed = false;
+        vm.image_changed = false;
+
+        vm.website = null;
+        vm.tags = [];
+
+        vm.cancel = cancel;
         vm.save = save;
         vm.remove = remove;
         vm.insertImage = insertImage;
         vm.gotoObjectives = gotoObjectives;
 
-        vm.website = null;
-        vm.objectives_changed = false;
-        vm.image_changed = false;
-
-        vm.tags = [];
         vm.loadTags = loadTags;
 
 
@@ -91,22 +93,26 @@
 
 
             Website.one(val).get()
-                .then(function (data) {
-                    if (data) {
-                        vm.website = data;
+                .then(websiteLoaded)
+                .catch(websiteError);
 
-                        vm.loading = false;
-                        return vm.website;
-                    } else {
-                        logger.warning('Could not find website id = ' + val);
-                        gotoWebsites();
-                    }
+            function websiteLoaded(data) {
+                if (data) {
+                    vm.website = data;
+
                     vm.loading = false;
-                })
-                .catch(function (error) {
-                    logger.error('Error while getting website id= ' + val + '; ' + error);
+                    return vm.website;
+                } else {
+                    logger.warning('Could not find website id = ' + val);
                     gotoWebsites();
-                })
+                }
+                vm.loading = false;
+            }
+
+            function websiteError(error){
+                logger.error('Error while getting website id= ' + val + '; ' + error);
+                gotoWebsites();
+            }
         }
 
         function gotoWebsites() {

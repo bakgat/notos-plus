@@ -10,7 +10,7 @@
         .controller('BooksController', BooksController);
 
     /* @ngInject */
-    function BooksController(common, config, Book) {
+    function BooksController(common, config, Book, $state) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -19,6 +19,8 @@
         vm.filter = {
             terms: null
         }
+
+        vm.gotoBook = gotoBook;
 
         vm.loading = false;
         vm.refresh = refresh;
@@ -48,6 +50,12 @@
 
                 return vm.books;
             });
+        }
+
+        function gotoBook(book) {
+            if(book && book.id) {
+                $state.go('library.books.detail', {id:book.id});
+            }
         }
 
         function refresh() {
