@@ -42,11 +42,11 @@
                                 <td><a data-ng-bind="book.name" data-ng-click="vm.gotoBook(book)"></a></td>
                                 <td>
                                     <a data-ng-repeat="author in book.authors"
-                                            data-ng-bind="author.fullName" data-ng-click="vm.byAuthor(author)"></a>
+                                            data-ng-bind="author.full_name" data-ng-click="vm.byAuthor(author)"></a>
                                 </td>
                                 <td>
                                     <a data-ng-repeat="publisher in book.publishers"
-                                        data-ng-bind="publisher.name" data-ng-click="vm.byPublisher(publisher)"></a>
+                                        data-ng-bind="publisher.full_name" data-ng-click="vm.byPublisher(publisher)"></a>
                                 </td>
                             </tr>
                             </tbody>

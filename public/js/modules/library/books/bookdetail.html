@@ -46,7 +46,7 @@
 
                                 <div class="col-lg-10">
                                     <input type="text" placeholder="ISBN" class="form-control" required
-                                           data-ng-model="vm.book.isbn">
+                                           data-ng-model="vm.book.isbn" data-ng-keyup="vm.findIsbn(vm.book.isbn)">
                                 </div>
                             </div>
                             <!-- .isbn -->

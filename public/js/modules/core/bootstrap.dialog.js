@@ -127,8 +127,7 @@
         $scope.message = options.message || '';
         $scope.okText = options.okText || 'Ok';
         $scope.cancelText = options.cancelText || 'Annuleren';
-        $
-        scope.ok = ok;
+        $scope.ok = ok;
         $scope.cancel = cancel;
 
         function ok() {
@@ -288,7 +287,7 @@
             '        <h3>{{title}}</h3>' +
             '    </div>' +
             '    <div class="modal-body">' +
-            '        <p>{{message}}</p>' +
+            '        <p data-ng-bind-html="message"></p>' +
             '    </div>' +
             '    <div class="modal-footer">' +
             '        <button class="btn btn-primary" data-ng-click="ok()">{{okText}}</button>' +

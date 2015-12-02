@@ -33,6 +33,7 @@
         vm.loadAuthors = loadAuthors;
         vm.loadPublishers = loadPublishers;
         vm.loadTags = loadTags;
+        vm.findIsbn = findIsbn;
 
         Object.defineProperty(vm, 'canSave', {get: canSave});
 
@@ -166,6 +167,26 @@
 
         function cancel() {
             gotoBooks();
+        }
+
+        function findIsbn(isbn) {
+            isbn = (isbn + '').replace(/[^x\d]/ig, '');
+            if ($stateParams.id === 'new' && (isbn.length === 10 || isbn.length === 13)) {
+                Book.ofIsbn(isbn).then(isbnLookup);
+            }
+
+            function isbnLookup(response) {
+                if (response) {
+                    Dialog.confirmationDialog('Isbn gevonden',
+                            '<p class="lead txt-warning">Een boek met isbn <strong>' + isbn + '</strong> bestaal al.<br/>' +
+                            'Wilt u het boek "<strong>' + response.name + '</strong>" updaten?</p>',
+                            'Ja', 'Nee')
+                        .then(confirmation);
+                }
+                function confirmation() {
+                    $state.go('library.books.detail', {id: response.id});
+                }
+            }
         }
 
     }
