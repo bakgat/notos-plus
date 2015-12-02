@@ -50,8 +50,12 @@
                                     </ul>
                                 </td>
                                 <td>
-                                    <a data-ng-repeat="publisher in book.publishers"
-                                       data-ng-bind="publisher.full_name" data-ng-click="vm.byPublisher(publisher)"></a>
+                                    <ul class="list-unstyled list-inline">
+                                        <li data-ng-repeat="publisher in book.publishers">
+                                            <a data-ng-bind="publisher.full_name" data-ng-click="vm.byPublisher(publisher)"></a>
+                                            <span data-ng-if="!$last">, </span>
+                                        </li>
+                                    </ul>
                                 </td>
                             </tr>
                             </tbody>
