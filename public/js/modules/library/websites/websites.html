@@ -45,8 +45,17 @@
                                              style="max-width:100px; max-height:50px;">
                                     </a>
                                 </td>
-                                <td><a ng-bind="website.name" ng-click="vm.gotoWebsite(website)"></a></td>
-                                <td><a ng-bind="website.url" ng-click="vm.gotoWebsite(website)"></a></td>
+                                <td>
+                                    <a ng-bind="website.name" ng-click="vm.gotoWebsite(website)"></a>
+                                </td>
+                                <td>
+                                    <a data-ng-href="{{website.url}}" target="_blank" class="list-link-icon">
+                                        <i class="fa fa-external-link m-r-xs"></i>
+                                    </a>
+                                    <a ng-bind="website.url" class="list-link inline"
+                                       ng-click="vm.gotoWebsite(website)"></a>
+
+                                </td>
                             </tr>
                             </tbody>
                         </table>
