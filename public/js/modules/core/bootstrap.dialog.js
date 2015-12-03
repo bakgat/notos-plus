@@ -368,7 +368,7 @@
 
     function registerSelectImageDialog($templateCache) {
         $templateCache.put('selectImageDialog.tpl.html',
-            '<div>' +
+            '<div class="assets-manager">' +
             '   <div class="modal-header">' +
             '       <button type="button" class="close" data-dismiss="modal"' +
             '           aria-hidden="true" data-ng-click="cancel()">&times;</button>' +
@@ -400,7 +400,7 @@
             '                   </div>' +
             '               </div>' +
             '           </div>' +
-            '           <div class="col-md-4 col-xs-hidden">' +
+            '           <div class="col-md-4 col-xs-hidden assets-preview-container">' +
             '               <img data-ng-src="{{selectedFile.thumbpath}}" data-ng-if="selectedFile" class="img-rounded img-responsive" />' +
             '           </div>' +
             '       </div>' +
