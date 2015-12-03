@@ -49,8 +49,9 @@
                                         <input type="text" placeholder="http://" class="form-control" required
                                                data-ng-model="vm.website.url">
                                         <span class="input-group-btn">
-                                            <button type="button" class="btn btn-primary"
-                                                data-ng-href="{{vm.website.url}}" target="_blank" data-ng-if="vm.website.url"><i class="fa fa-external-link"></i></button>
+                                            <a class="btn btn-primary"
+                                                data-ng-href="{{vm.website.url}}" target="_blank" data-ng-disabled="!vm.website.url">
+                                                <i class="fa fa-external-link"></i></a>
                                         </span>
                                     </div>
 
