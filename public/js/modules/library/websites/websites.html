@@ -32,6 +32,7 @@
                                 <th class="hidden-xs"></th>
                                 <th>Titel</th>
                                 <th>Adres</th>
+                                <th style="width: 20px;"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -49,12 +50,13 @@
                                     <a ng-bind="website.name" ng-click="vm.gotoWebsite(website)"></a>
                                 </td>
                                 <td>
+                                    <a ng-bind="website.url" class="list-link"
+                                       ng-click="vm.gotoWebsite(website)"></a>
+                                </td>
+                                <td style="width: 20px;">
                                     <a data-ng-href="{{website.url}}" target="_blank" class="list-link-icon">
                                         <i class="fa fa-external-link"></i>
                                     </a>
-                                    <a ng-bind="website.url" class="list-link"
-                                       ng-click="vm.gotoWebsite(website)"></a>
-
                                 </td>
                             </tr>
                             </tbody>
