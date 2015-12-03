@@ -201,7 +201,7 @@
         ///////////////////////////////////////////////////////
 
         function load() {
-            if ($scope.type === null) {
+            if ($scope.type === 'website') {
                 Asset.getImagesForWebsites().then(imagesCompleted);
             } else {
                 Asset.getImages($scope.type).then(imagesCompleted);

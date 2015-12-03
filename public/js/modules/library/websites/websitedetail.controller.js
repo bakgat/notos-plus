@@ -153,7 +153,7 @@
         }
 
         function insertImage() {
-            return Dialog.selectImageDialog()
+            return Dialog.selectImageDialog('website')
                 .then(insertImage);
 
             function insertImage(response) {
