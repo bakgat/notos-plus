@@ -179,12 +179,14 @@
     }
 
     /* @ngInject */
-    function SelectImageModalInstance($scope, $modalInstance, options, Asset, Upload, common, Dialog, $http) {
+    function SelectImageModalInstance($scope, $modalInstance, options, Asset,
+                                      Upload, common, Dialog, ProfileService,
+                                      $http) {
         $scope.title = options.title || 'Selecteer een afbeelding';
-        $scope.files = options.files || [{url: '/img/icons/icon-chain-64.png'}];
+        $scope.files = options.files || [];
         $scope.type = options.type || null;
         $scope.queue = [];
-        $scope.selectedFile = {};
+        $scope.selectedFile = null;
         $scope.progress = 0;
 
         $scope.uploadFiles = uploadFiles;
@@ -232,17 +234,24 @@
         }
 
         function uploadFiles(files) {
-
-
             if (files && files.length) {
                 angular.forEach(files, function (file) {
                     file.loading = true;
                     $scope.queue.unshift(file);
                 });
 
+                var data = {
+                    file: files,
+                    type: $scope.type
+                }
+                if ($scope.type !== null) {
+                    data.organization = ProfileService.realm();
+                }
+
+
                 Upload.upload({
                     url: 'api/upload',
-                    data: {file: files},
+                    data: data,
                     headers: {'X-CSRF-TOKEN': common.csrfToken()}
                 }).then(uploadComplete, uploadError, uploadProgress);
             }
@@ -258,7 +267,7 @@
                     $scope.files.unshift(asset);
                 });
                 $scope.queue = [];
-
+                $scope.selectedFile = $scope.files[0] || null;
             }
 
             function uploadError(response) {
@@ -271,11 +280,20 @@
                 .then(importUrl);
 
             function importUrl(result) {
-                $http.post('/api/upload/url', {url: result.input})
+                var data = {
+                    url: result.input,
+                    type: $scope.type
+                }
+                if ($scope.type !== null) {
+                    data.organization = ProfileService.realm();
+                }
+
+                $http.post('/api/upload/url', data)
                     .then(postComplete);
 
                 function postComplete(response) {
                     $scope.files.unshift(response.data);
+                    $scope.selectedFile = $scope.files[0] || null;
                 }
             }
         }
