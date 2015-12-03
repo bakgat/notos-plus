@@ -243,7 +243,7 @@
                     file: files,
                     type: $scope.type
                 }
-                if ($scope.type !== null) {
+                if ($scope.type !== 'website') {
                     data.organization = ProfileService.realm();
                 }
 
@@ -283,7 +283,7 @@
                     url: result.input,
                     type: $scope.type
                 }
-                if ($scope.type !== null) {
+                if ($scope.type !== 'website') {
                     data.organization = ProfileService.realm();
                 }
 
