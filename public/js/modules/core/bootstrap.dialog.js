@@ -197,7 +197,6 @@
         $scope.itemClicked = itemClicked;
         $scope.backgroundImage = makeBGImageStyle;
 
-
         load();
         ///////////////////////////////////////////////////////
 
