@@ -56,7 +56,8 @@ var js_sources = [
     'public/js/modules/**/*module*.js',
     'public/js/modules/core/*.js',
     'public/js/modules/data/*.js',
-    'public/js/modules/**/*.js'
+    'public/js/modules/**/*.js',
+    'public/js/afterload.js'
 ];
 
 gulp.task('js', function () {
