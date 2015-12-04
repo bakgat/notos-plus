@@ -47,7 +47,7 @@
         }
 
         function byTag(book, t) {
-            return _.som(book.tags, function (tag) {
+            return _.some(book.tags, function (tag) {
                 return _.contains(tag.name.toLowerCase(), t.toLowerCase());
             });
         }
