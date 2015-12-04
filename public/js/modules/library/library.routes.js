@@ -19,7 +19,8 @@
                 state: 'library',
                 config: {
                     abstract: true,
-                    url: '/library'
+                    url: '/library',
+                    title: 'Bibliotheek'
                 }
             },
             {
