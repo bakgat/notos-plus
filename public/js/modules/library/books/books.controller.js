@@ -10,7 +10,7 @@
         .controller('BooksController', BooksController);
 
     /* @ngInject */
-    function BooksController(common, config, Book, $state) {
+    function BooksController(common, config, Book, $state, $scope, SearchBooksFilter) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -30,6 +30,7 @@
 
         activate();
         ////////////
+        $scope.$watch('vm.filter', doFilter, true);
 
         function activate() {
             getBooks();
@@ -60,6 +61,14 @@
 
         function refresh() {
             getBooks(true);
+        }
+
+        function doFilter() {
+            if (vm.filter.terms && vm.filter.terms !== '') {
+                vm.filteredBooks = SearchBooksFilter(vm.books, vm.filter.terms);
+            } else {
+                vm.filteredBooks = vm.books;
+            }
         }
     }
 })();
