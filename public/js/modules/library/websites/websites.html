@@ -11,12 +11,12 @@
             <div class="row">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 hidden-xs">
                             <input class="input-md form-control"
                                    data-ng-model="vm.filter.terms"
                                    placeholder="zoeken...">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 col-xs-12">
                             <div class="pull-right">
                                 <a class="btn btn-info btn-xs" data-ng-click="vm.refresh()">
                                     <i class="fa fa-refresh"></i> <span>Vernieuwen</span>
@@ -31,8 +31,8 @@
                             <tr>
                                 <th class="hidden-xs"></th>
                                 <th>Titel</th>
-                                <th>Adres</th>
-                                <th style="width: 20px;"></th>
+                                <th class="hidden-xs">Adres</th>
+                                <th class="hidden-xs" style="width: 20px;"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -49,11 +49,11 @@
                                 <td>
                                     <a ng-bind="website.name" ng-click="vm.gotoWebsite(website)"></a>
                                 </td>
-                                <td>
+                                <td class="hidden-xs">
                                     <a ng-bind="website.url" class="list-link"
                                        ng-click="vm.gotoWebsite(website)"></a>
                                 </td>
-                                <td style="width: 20px;">
+                                <td class="hidden-xs" style="width: 20px;">
                                     <a data-ng-href="{{website.url}}" target="_blank" class="list-link-icon">
                                         <i class="fa fa-external-link"></i>
                                     </a>

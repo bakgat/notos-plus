@@ -11,12 +11,12 @@
             <div class="row">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 hidden-xs">
                             <input class="input-md form-control"
                                    data-ng-model="vm.filter.terms"
                                    placeholder="zoeken...">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 col-xs-12">
                             <div class="pull-right">
                                 <a class="btn btn-info btn-xs" data-ng-click="vm.refresh()">
                                     <i class="fa fa-refresh"></i> <span>Vernieuwen</span>
@@ -31,8 +31,8 @@
                             <tr>
                                 <th class="hidden-xs"></th>
                                 <th>Titel</th>
-                                <th>Auteur(s)</th>
-                                <th>Uitgeverij</th>
+                                <th class="hidden-xs">Auteur(s)</th>
+                                <th class="hidden-xs">Uitgeverij</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -47,7 +47,7 @@
                                     </a>
                                 </td>
                                 <td><a data-ng-bind="book.name" data-ng-click="vm.gotoBook(book)"></a></td>
-                                <td>
+                                <td class="hidden-xs">
                                     <ul class="list-unstyled list-inline">
                                         <li data-ng-repeat="author in book.authors">
                                             <a data-ng-bind="author.full_name" data-ng-click="vm.byAuthor(author)"></a>
@@ -55,7 +55,7 @@
                                         </li>
                                     </ul>
                                 </td>
-                                <td>
+                                <td class="hidden-xs">
                                     <ul class="list-unstyled list-inline">
                                         <li data-ng-repeat="publisher in book.publishers">
                                             <a data-ng-bind="publisher.full_name" data-ng-click="vm.byPublisher(publisher)"></a>
