@@ -20,7 +20,8 @@
                     return byName(book, t) ||
                         byIsbn(book, t) ||
                         byAuthor(book, t) ||
-                        byPublisher(book, t);
+                        byPublisher(book, t) ||
+                        byTag(book, t);
                 });
             });
         }
@@ -42,6 +43,12 @@
         function byPublisher(book, t) {
             return _.some(book.publishers, function (publisher) {
                 return _.contains(publisher.full_name.toLowerCase(), t.toLowerCase());
+            });
+        }
+
+        function byTag(book, t) {
+            return _.som(book.tags, function (tag) {
+                return _.contains(tag.name.toLowerCase(), t.toLowerCase());
             });
         }
     }
