@@ -1,0 +1,128 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2 ng-bind="$state.title"></h2>
+
+        <div ncy-breadcrumb></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content">
+            <div class="row">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content" data-nt-spinner data-spinner-show="vm.loading">
+                        <form class="form-horizontal" ng-show="!vm.loading" name="detail" >
+                            <div class="">
+                                <button class="btn btn-info btn-form-md" data-ng-click="vm.cancel()">
+                                    <fa name="undo"></fa>
+                                    Annuleren
+                                </button>
+                                <button class="btn btn-info btn-form-md" data-ng-click="vm.save()"
+                                        data-ng-disabled="(!detail.$dirty || !detail.$valid) && !vm.image_changed">
+                                    <fa name="save"></fa>
+                                    0pslaan
+                                </button>
+                                <button class="btn btn-danger btn-form-md pull-right" data-ng-if="vm.book.id"
+                                        data-ng-click="vm.remove()">
+                                    <fa name="trash"></fa>
+                                    Verwijderen
+                                </button>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <!-- Title -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Titel</label>
+
+                                <div class="col-lg-10">
+                                    <input type="text" placeholder="Titel" class="form-control" required
+                                           data-ng-model="vm.book.name">
+                                </div>
+                            </div>
+                            <!-- .title -->
+
+                            <!-- Isbn -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">ISBN</label>
+
+                                <div class="col-lg-10">
+                                    <input type="text" placeholder="ISBN" class="form-control" required
+                                           data-ng-model="vm.book.isbn" data-ng-keyup="vm.findIsbn(vm.book.isbn)">
+                                </div>
+                            </div>
+                            <!-- .isbn -->
+
+                            <!-- Description -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Inhoud</label>
+
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" data-ng-model="vm.book.description"></textarea>
+                                </div>
+                            </div>
+                            <!-- .description -->
+
+                            <!-- authors -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Auteur{{vm.book.authors.length > 1 ? 's' : ''}}</label>
+
+                                <div class="col-lg-10">
+                                    <tags-input ng-model="vm.book.authors" placeholder="Voeg een auteur toe"
+                                                add-on-enter="true" add-on-comma="true" display-property="last_name"
+                                                add-on-space="false" replace-spaces-with-dashes="false">
+                                        <auto-complete source="vm.loadAuthors($query)"></auto-complete>
+                                    </tags-input>
+                                </div>
+                            </div>
+                            <!-- .authors -->
+
+                            <!-- tags -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Uitgever{{vm.book.publishers.length > 1 ? 's' : ''}}</label>
+
+                                <div class="col-lg-10">
+                                    <tags-input ng-model="vm.book.publishers" placeholder="Voeg een uitgever toe"
+                                                add-on-enter="true" add-on-comma="true" display-property="last_name"
+                                                add-on-space="false" replace-spaces-with-dashes="false">
+                                        <auto-complete source="vm.loadPublishers($query)"></auto-complete>
+                                    </tags-input>
+                                </div>
+                            </div>
+                            <!-- .tags -->
+
+                            <!-- tags -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Tags</label>
+
+                                <div class="col-lg-10">
+                                    <tags-input ng-model="vm.book.tags" placeholder="Voeg een tag toe"
+                                                add-on-enter="true" add-on-comma="true" display-property="name"
+                                                add-on-space="false" replace-spaces-with-dashes="false">
+                                        <auto-complete source="vm.loadTags($query)"></auto-complete>
+                                    </tags-input>
+                                </div>
+                            </div>
+                            <!-- .tags -->
+
+                            <!-- image -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">
+                                    <div>Afbeelding</div>
+                                    <a class="btn btn-default btn-xs" ng-click="vm.insertImage()">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                </label>
+
+                                <div class="col-lg-10">
+                                    <a data-ng-click="vm.insertImage()" class="thumbnail" style="max-width:150px;">
+                                        <img ng-src="{{vm.book.image.thumbpath || '/img/icons/icon-chain-64.png'}}">
+                                    </a>
+                            </div>
+                            <!-- .image -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

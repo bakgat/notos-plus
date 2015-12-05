@@ -1,0 +1,74 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-12">
+        <h2 ng-bind="$state.title"></h2>
+
+        <div ncy-breadcrumb></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content">
+            <div class="row">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="col-sm-8 hidden-xs">
+                            <input class="input-md form-control"
+                                   data-ng-model="vm.filter.terms"
+                                   placeholder="zoeken...">
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="pull-right">
+                                <a class="btn btn-info btn-xs" data-ng-click="vm.refresh()">
+                                    <i class="fa fa-refresh"></i> <span>Vernieuwen</span>
+                                </a>
+                                <a class="btn btn-info btn-xs" ui-sref="library.books.detail({id:'new'})">
+                                    <i class="fa fa-plus"></i> <span>Boek toevoegen</span>
+                                </a>
+                            </div>
+                        </div>
+                        <table class="table table-striped" nt-spinner spinner-show="vm.loading" colspan="4">
+                            <thead>
+                            <tr>
+                                <th class="hidden-xs"></th>
+                                <th>Titel</th>
+                                <th class="hidden-xs">Auteur(s)</th>
+                                <th class="hidden-xs">Uitgeverij</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr data-ng-show="!vm.loading"
+                                data-ng-repeat="book in vm.filteredBooks | orderBy:'-id' track by book.id">
+                                <td class="hidden-xs" style="width:100px;">
+                                    <a class="thumbnail" data-ng-if="book.image.thumbpath"
+                                       ng-click="vm.gotoBook(book)">
+                                        <img ng-src="{{book.image.thumbpath}}"
+                                             style="max-width:100px; max-height:50px;">
+                                    </a>
+                                </td>
+                                <td><a data-ng-bind="book.name" data-ng-click="vm.gotoBook(book)"></a></td>
+                                <td class="hidden-xs">
+                                    <ul class="list-unstyled list-inline">
+                                        <li data-ng-repeat="author in book.authors">
+                                            <a data-ng-bind="author.full_name" data-ng-click="vm.byAuthor(author)"></a>
+                                            <span data-ng-if="!$last">, </span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="hidden-xs">
+                                    <ul class="list-unstyled list-inline">
+                                        <li data-ng-repeat="publisher in book.publishers">
+                                            <a data-ng-bind="publisher.full_name" data-ng-click="vm.byPublisher(publisher)"></a>
+                                            <span data-ng-if="!$last">, </span>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
