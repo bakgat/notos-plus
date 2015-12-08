@@ -35,7 +35,8 @@
             </li>
 
 
-            @if(Auth::user()->is('sa') && str_contains(Request::server('SERVER_NAME'), 'klimtoren'))
+            @if(Auth::user()->is('sa') &&
+                (str_contains(Request::server('SERVER_NAME'), 'klimtoren')))
 
                 <li ng-class="{active: $state.includes('manage')}">
                     <a href="">

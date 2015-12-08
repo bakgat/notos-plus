@@ -50,6 +50,7 @@ gulp.task('less', function () {
 
 
 var js_sources = [
+    'public/js/modules/patches/*.js',
     'public/js/modules/notosplus.module.js',
     'public/js/modules/core/*module*.js',
     'public/js/modules/data/*module*.js',
