@@ -8,9 +8,8 @@
             de scholengemeenschap De 4 Winden.
         @endif
         @if(str_contains(Request::server('SERVER_NAME'), 'klimtoren'))
-            <!--VBS De Klimtoren-->
-            de scholengemeenschap De 4 Winden.
-            @endif
-            2014-<% date('Y') %>
+            VBS De Klimtoren
+        @endif
+        2014-<% date('Y') %>
     </div>
 </div>
