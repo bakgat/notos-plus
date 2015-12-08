@@ -19,7 +19,8 @@
                 state: 'my',
                 config: {
                     abstract: true,
-                    url: '/my'
+                    url: '/my',
+                    title: 'mijn'
                 }
             },
             {
