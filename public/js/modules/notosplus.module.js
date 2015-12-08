@@ -17,6 +17,7 @@
             'notosplus.curricula',
             'notosplus.tags',
             'notosplus.portal',
-            'notosplus.assets'
+            'notosplus.assets',
+            'notosplus.my'
         ]);
 })();

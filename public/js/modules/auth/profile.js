@@ -11,7 +11,7 @@
         .factory('ProfileService', ProfileService);
 
     /* @ngInject */
-    function ProfileService($http, exception, $q, common, config) {
+    function ProfileService($http, exception, $q, common, config, HTTPCache) {
         var cache = null;
         var _realm = null;
         var events = config.events;
@@ -19,7 +19,8 @@
         var service = {
             current: current,
             realm: realm,
-            setRealm: setRealm
+            setRealm: setRealm,
+            resetPassword: resetPassword
         };
 
         return service;
@@ -56,5 +57,15 @@
             common.$broadcast(events.realmChanged, realm);
         }
 
+        function resetPassword(value) {
+            if (cache && cache.id && service.realm() && service.realm().id) {
+                return HTTPCache.service('/organization').one(service.realm().id)
+                    .one('user', cache.id)
+                    .one('password')
+                    .patch(value);
+            } else {
+                return $q.when(false);
+            }
+        }
     }
 })();

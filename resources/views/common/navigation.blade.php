@@ -5,7 +5,7 @@
                 <div class="dropdown profile-element" dropdown>
                     <span>
                         <img alt="{{shell.profile.fullName}}" class="img-circle" width="50" height="50"
-                             src="{{shell.avatar}}">
+                             data-ng-src="{{shell.avatar}}">
                     </span>
                     <a class="dropdown-toggle" dropdown-toggle href>
                             <span class="clear">
@@ -16,7 +16,7 @@
                             </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-
+                        <li><a ui-sref="my.profile">Profiel</a></li>
                     </ul>
                 </div>
                 <!-- . USER NAVIGATION -->
