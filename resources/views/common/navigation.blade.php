@@ -10,13 +10,14 @@
                     <a class="dropdown-toggle" dropdown-toggle href>
                             <span class="clear">
                                 <span class="block m-t-xs">
-                                    <strong class="font-bold">{{shell.profile.fullName}}</strong>
-                             </span>
-                                <span clas s="text-muted text-xs block">Menu<b class="caret"></b></span>
+                                    <strong class="font-bold">{{shell.profile.fullName}}</strong> <b class="caret"></b>
+                                </span>
                             </span>
                     </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                    <ul class="dropdown-menu animated flipInY m-t-xs">
                         <li><a ui-sref="my.profile">Profiel</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/auth/logout">Afmelden</a></li>
                     </ul>
                 </div>
                 <!-- . USER NAVIGATION -->
@@ -92,25 +93,27 @@
             @endif
 
             @if(Auth::user()->is('sa') && str_contains(Request::server('SERVER_NAME'), 'klimtoren'))
-            <li ng-class="{active: $state.includes('portal')}">
-                <a href="javascript:void(0);">
-                    <nt-fa name="globe"></nt-fa>
-                    <span class="nav-label">Portaal</span>
-                    <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level" ng-class="{in: $state.include('portal')}">
-                    <li ui-sref-active="active">
-                        <a ui-sref="portal.blogs">
-                            <nt-fa name="online"></nt-fa> Blogs
-                        </a>
-                    </li>
-                    <li ui-sref-active="active">
-                        <a ui-sref="portal.calendar">
-                            <nt-fa name="calendar"></nt-fa> Kalender
-                        </a>
-                    </li>
-                </ul>
-                </a>
-            </li>
+                <li ng-class="{active: $state.includes('portal')}">
+                    <a href="javascript:void(0);">
+                        <nt-fa name="globe"></nt-fa>
+                        <span class="nav-label">Portaal</span>
+                        <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" ng-class="{in: $state.include('portal')}">
+                        <li ui-sref-active="active">
+                            <a ui-sref="portal.blogs">
+                                <nt-fa name="online"></nt-fa>
+                                Blogs
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="portal.calendar">
+                                <nt-fa name="calendar"></nt-fa>
+                                Kalender
+                            </a>
+                        </li>
+                    </ul>
+                    </a>
+                </li>
             @endif
         </ul>
 
