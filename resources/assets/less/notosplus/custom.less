@@ -21,6 +21,39 @@
   }
 }
 
+/* FIXED FIRST COLUMN */
+[fixed-first-column] {position:relative}
+[fixed-first-column]>.table-responsive {margin-left:80px;}
+[fixed-first-column]>.table-responsive .table {}
+
+[fixed-first-column]>.table-responsive .table>thead>tr>td:first-child,
+[fixed-first-column]>.table-responsive .table>tbody>tr>td:first-child,
+[fixed-first-column]>.table-responsive .table>thead>tr>th:first-child,
+[fixed-first-column]>.table-responsive .table>tbody>tr>th:first-child {
+  position: absolute;
+  min-width: 80px;
+  width: 80px;
+  border-right: 1px solid #ddd !important;
+  border-bottom:1px solid #f5f5f5 !important;
+  left:0;
+  top:auto;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+[fixed-first-column] > .table-responsive .table > thead > tr > td:first-child > div,
+[fixed-first-column] > .table-responsive .table > tbody > tr > td:first-child > div,
+[fixed-first-column] > .table-responsive .table > thead > tr > th:first-child > div,
+[fixed-first-column] > .table-responsive .table > tbody > tr > th:first-child > div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position:relative;
+}
+
+[fixed-first-column] td {
+  min-width:150px; /* default width */
+  max-width:300px;
+}
 
 .disabled {
   color: @text-disabled;
@@ -30,3 +63,4 @@ tags-input .tags .tag-item {
   font-family: @font-family-base;
   font-size: @font-size-form-control;
 }
+
