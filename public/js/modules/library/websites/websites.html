@@ -31,9 +31,8 @@
                             <tr>
                                 <th class="hidden-xs"></th>
                                 <th>Titel</th>
-                                <th class="hidden-xs">Tags</th>
                                 <th class="hidden-xs">Adres</th>
-                                <th class="hidden-xs" style="width: 20px;"></th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -50,23 +49,23 @@
                                 <td>
                                     <a ng-bind="website.name" ng-click="vm.gotoWebsite(website)"></a>
                                 </td>
-                                <td>
+                                <!--<td>
                                     <ul class="list-unstyled list-inline">
                                         <li data-ng-repeat="tag in website.tags">
                                             <a data-ng-bind="tag.name" data-ng-click="vm.gotoWebsite(website)"></a>
                                             <span data-ng-if="!$last">, </span>
                                         </li>
                                     </ul>
-                                </td>
+                                </td>-->
                                 <td class="hidden-xs">
-                                    <a ng-bind="website.url" class="list-link"
-                                       ng-click="vm.gotoWebsite(website)"></a>
-                                </td>
-                                <td class="hidden-xs" style="width: 20px;">
-                                    <a data-ng-href="{{website.url}}" target="_blank" class="list-link-icon">
+                                    <a data-ng-href="{{website.url}}" target="_blank" class="list-link-icon inline m-r-md">
                                         <i class="fa fa-external-link"></i>
                                     </a>
+
+                                    <a ng-bind="website.url" class="list-link inline"
+                                       ng-click="vm.gotoWebsite(website)"></a>
                                 </td>
+
                             </tr>
                             </tbody>
                         </table>
