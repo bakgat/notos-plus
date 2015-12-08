@@ -5,7 +5,7 @@
     <div>
         <strong>&copy;</strong>
         @if(str_contains(Request::server('SERVER_NAME'), 'de4winden'))
-            de scholengemeenschap De 4 Winden.
+            De 4 Winden
         @endif
         @if(str_contains(Request::server('SERVER_NAME'), 'klimtoren'))
             VBS De Klimtoren
