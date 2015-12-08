@@ -5,7 +5,7 @@
         <div ncy-breadcrumb></div>
     </div>
 </div>
-<div class="row">
+<div class="row" data-auto-scroll>
     <div class="col-lg-12">
         <div class="wrapper wrapper-content">
             <div class="row">
@@ -26,49 +26,51 @@
                                 </a>
                             </div>
                         </div>
-                        <table class="table table-striped" nt-spinner spinner-show="vm.loading" colspan="3">
-                            <thead>
-                            <tr>
-                                <th class="hidden-xs"></th>
-                                <th>Titel</th>
-                                <th class="hidden-xs">Adres</th>
+                        <div >
+                            <table class="table table-striped" nt-spinner spinner-show="vm.loading" colspan="3">
+                                <thead>
+                                <tr>
+                                    <th class="hidden-xs"></th>
+                                    <th>Titel</th>
+                                    <th class="hidden-xs">Adres</th>
+                                </tr>
+                                </thead>
+                                <tbody>
 
-                            </tr>
-                            </thead>
-                            <tbody>
+                                <tr data-ng-show="!vm.loading"
+                                    ng-repeat="website in vm.filteredWebsites | orderBy:'-id' track by website.id">
+                                    <td class="hidden-xs" style="width:100px;">
+                                        <a class="thumbnail" data-ng-if="website.image.thumbpath"
+                                           data-ng-click="vm.gotoWebsite(website)">
+                                            <img data-ng-src="{{website.image.thumbpath}}"
+                                                 style="max-width:100px; max-height:50px;">
+                                        </a>
+                                    </td>
+                                    <td class="col-md-5">
+                                        <a ng-bind="website.name" ng-click="vm.gotoWebsite(website)"></a>
+                                    </td>
+                                    <!--<td>
+                                        <ul class="list-unstyled list-inline">
+                                            <li data-ng-repeat="tag in website.tags">
+                                                <a data-ng-bind="tag.name" data-ng-click="vm.gotoWebsite(website)"></a>
+                                                <span data-ng-if="!$last">, </span>
+                                            </li>
+                                        </ul>
+                                    </td>-->
+                                    <td class="hidden-xs">
+                                        <a data-ng-href="{{website.url}}" target="_blank"
+                                           class="list-link-icon inline m-r-md">
+                                            <i class="fa fa-external-link"></i>
+                                        </a>
 
-                            <tr data-ng-show="!vm.loading"
-                                ng-repeat="website in vm.filteredWebsites | orderBy:'-id' track by website.id">
-                                <td class="hidden-xs" style="width:100px;">
-                                    <a class="thumbnail" data-ng-if="website.image.thumbpath"
-                                       data-ng-click="vm.gotoWebsite(website)">
-                                        <img data-ng-src="{{website.image.thumbpath}}"
-                                             style="max-width:100px; max-height:50px;">
-                                    </a>
-                                </td>
-                                <td>
-                                    <a ng-bind="website.name" ng-click="vm.gotoWebsite(website)"></a>
-                                </td>
-                                <!--<td>
-                                    <ul class="list-unstyled list-inline">
-                                        <li data-ng-repeat="tag in website.tags">
-                                            <a data-ng-bind="tag.name" data-ng-click="vm.gotoWebsite(website)"></a>
-                                            <span data-ng-if="!$last">, </span>
-                                        </li>
-                                    </ul>
-                                </td>-->
-                                <td class="hidden-xs">
-                                    <a data-ng-href="{{website.url}}" target="_blank" class="list-link-icon inline m-r-md">
-                                        <i class="fa fa-external-link"></i>
-                                    </a>
+                                        <a ng-bind="website.url" class="list-link inline"
+                                           ng-click="vm.gotoWebsite(website)"></a>
+                                    </td>
 
-                                    <a ng-bind="website.url" class="list-link inline"
-                                       ng-click="vm.gotoWebsite(website)"></a>
-                                </td>
-
-                            </tr>
-                            </tbody>
-                        </table>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
