@@ -1,12 +1,12 @@
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-12">
+    <div class="col-md-12">
         <h2 ng-bind="$state.title"></h2>
 
         <div ncy-breadcrumb></div>
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
         <div class="wrapper wrapper-content">
             <div class="row">
                 <div class="ibox float-e-margins">
@@ -29,19 +29,19 @@
                                 </button>
                             </div>
                             <div class="hr-line-dashed"></div>
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label">Titel</label>
 
-                                <div class="col-lg-10">
+                            <div class="col-md-12">
+                                <label class="control-label">Titel</label>
+
+                                <div class="">
                                     <input type="text" placeholder="Titel" class="form-control" required
                                            data-ng-model="vm.event.name">
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <label class="control-label">Start</label>
 
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label">Start</label>
-
-                                <div class="col-lg-10">
+                                <div class="">
                                     <div class="input-group date">
                                         <input type="datetime" class="form-control" date-time
                                                data-ng-model="vm.event.start" data-view="date">
@@ -50,10 +50,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group" data-ng-show="!vm.event.allDay">
-                                <label class="col-lg-2 control-label">Eind</label>
+                            <div class="col-md-6" data-ng-show="!vm.event.allDay">
+                                <label class="control-label">Eind</label>
 
-                                <div class="col-lg-10">
+                                <div class="">
                                     <div class="input-group date">
                                         <input type="datetime" class="form-control" date-time
                                                data-ng-model="vm.event.end" data-view="date">
@@ -62,24 +62,35 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label">Beschrijving</label>
+                            <div class="col-md-12">
+                                <label class="control-label">Beschrijving</label>
 
-                                <div class="col-lg-10">
+                                <div class="">
                                     <input type="text" placeholder="Beschrijving" class="form-control"
-                                           ng-model="vm.blog.description">
+                                           ng-model="vm.event.description">
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-lg-2 control-label">Voor groepen:</label>
+                            <div class="col-md-12">
 
-                                <div class="col-lg-10">
-                                    <label ng-repeat="group in vm.groups">
-                                        <input type="checkbox" checklist-model="user.roles" checklist-value="role"> {{role}}
-                                    </label>
+                                <label class="control-label m-r-md pull-left">Voor groepen:</label>
+
+                                <div class="pull-left m-md">
+                                    <select class="select-small" multiple size="5"
+                                            data-ng-multiple="true" data-ng-model="vm.event.classgroups"
+                                            data-ng-options="c.last_name for c in vm.classGroups">
+                                    </select>
                                 </div>
                             </div>
+                            <div class="col-md-12" data-ng-if="vm.event.classgroups.length > 0">
+                                <small>
+                                    Geselecteerde groepen:
+                                    <span data-ng-repeat="g in vm.event.classgroups">
+                                        {{g.last_name}}<span data-ng-if="!$last">, </span>
+                                    </span>
+                                </small>
+                            </div>
+                            <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
         .controller('CalendarController', CalendarController);
 
     /* @ngInject */
-    function CalendarController(common, config, CalendarEvent, $state) {
+    function CalendarController(common, config, CalendarEvent, $state, moment, _) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -38,32 +38,47 @@
                 }
             }
 
-            CalendarEvent.getList().then(calendarComplete);
+            return CalendarEvent.getList().then(calendarComplete);
 
             function calendarComplete(response) {
                 vm.cachedEvents = response;
                 vm.events = convertTo(response, 'start', true);
                 vm.loading = false;
+                return vm.events;
             }
         }
 
         function convertTo(arr, key, dayWise) {
-            var groups = {};
+            //var classGroups = [];
             var l = arr.length;
-            for (var i = 0; i < l; i++) {
-                var local = moment.utc(arr[i][key]).format('DD MMMM YYYY');
-                //if (dayWise) {
 
-                //console.log(local);
-                //arr[i][key] = arr[i][key].toLocaleDateString();
-                //}
-                // else {
-                //     arr[i][key] = arr[i][key].toTimeString();
-                //}
-                groups[local] = groups[local] || [];
-                groups[local].push(arr[i]);
+            if (dayWise) {
+                for (var i = 0; i < l; i++) {
+                    arr[i].key = moment(arr[i][key]).format('DD MMMM YYYY');
+                }
             }
-            return groups;
+            var result = _.chain(arr)
+                .groupBy('key')
+                .pairs()
+                .map(function (currentItem) {
+                    return _.object(_.zip(['key', "events"], currentItem));
+                })
+                .value();
+
+            /*
+             for (var i = 0; i < l; i++) {
+             var local = moment.utc(arr[i][key]).format('DD MMMM YYYY');
+             if (dayWise) {
+             console.log(local);
+             arr[i][key] = arr[i][key].toLocaleDateString();
+             }
+             else {
+             arr[i][key] = arr[i][key].toTimeString();
+             }
+             arr[i].localDate = local
+             classGroups.push(arr[i]);
+             }*/
+            return result;
         };
 
         function gotoEvent(event) {

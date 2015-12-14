@@ -64,10 +64,10 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'description', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'avatar', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
+            return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'description', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'avatar', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'parent', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'children', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'description', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'avatar', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
+        return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'description', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'avatar', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'parent', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'children', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
     }
 
     /**
@@ -237,6 +237,72 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'avatar', array());
 
         return parent::avatar();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setParent(\Bakgat\Notos\Domain\Model\Identity\Group $parent)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParent', array($parent));
+
+        return parent::setParent($parent);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function parent()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'parent', array());
+
+        return parent::parent();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function children()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'children', array());
+
+        return parent::children();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addChild(\Bakgat\Notos\Domain\Model\Identity\Group $child)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addChild', array($child));
+
+        return parent::addChild($child);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeChild(\Bakgat\Notos\Domain\Model\Identity\Group $child)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeChild', array($child));
+
+        return parent::removeChild($child);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function clearChildren()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'clearChildren', array());
+
+        return parent::clearChildren();
     }
 
     /**

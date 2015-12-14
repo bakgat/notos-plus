@@ -37,7 +37,8 @@
 
 
             @if(Auth::user()->is('sa') &&
-                (str_contains(Request::server('SERVER_NAME'), 'klimtoren')))
+                (str_contains(Request::server('SERVER_NAME'), 'klimtoren') ||
+                str_contains(Request::server('SERVER_NAME'), 'localhost')))
 
                 <li ng-class="{active: $state.includes('manage')}">
                     <a href="">
@@ -78,7 +79,9 @@
                         <!-- .WEBSITES -->
                         @endif
 
-                        @if(Auth::user()->is('book_moderator|sa') && str_contains(Request::server('SERVER_NAME'), 'klimtoren'))
+                        @if(Auth::user()->is('book_moderator|sa') &&
+                (str_contains(Request::server('SERVER_NAME'), 'klimtoren') ||
+                str_contains(Request::server('SERVER_NAME'), 'localhost')))
                                 <!-- BOOKS -->
                         <li ui-sref-active="active">
                             <a ui-sref="library.books">
@@ -92,7 +95,9 @@
                 <!-- .LIBRARY -->
             @endif
 
-            @if(Auth::user()->is('sa') && str_contains(Request::server('SERVER_NAME'), 'klimtoren'))
+            @if(Auth::user()->is('sa') &&
+                (str_contains(Request::server('SERVER_NAME'), 'klimtoren') ||
+                str_contains(Request::server('SERVER_NAME'), 'localhost')))
                 <li ng-class="{active: $state.includes('portal')}">
                     <a href="javascript:void(0);">
                         <nt-fa name="globe"></nt-fa>

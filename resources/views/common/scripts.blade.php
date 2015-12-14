@@ -37,3 +37,6 @@
 <!-- inject app:scripts -->
 <script src="/js/app.min.js"></script>
 <!-- end inject app:scripts -->
+
+
+@include('common.by_bakgat')

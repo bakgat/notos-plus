@@ -818,7 +818,7 @@ function Sizzle( selector, context, results, seed ) {
 			// and working up from there (Thanks to Andrew Dupont for the technique)
 			// IE 8 doesn't work on object elements
 			if ( nodeType === 1 && context.nodeName.toLowerCase() !== "object" ) {
-				groups = tokenize( selector );
+				classGroups = tokenize( selector );
 
 				if ( (old = context.getAttribute("id")) ) {
 					nid = old.replace( rescape, "\\$&" );
@@ -827,12 +827,12 @@ function Sizzle( selector, context, results, seed ) {
 				}
 				nid = "[id='" + nid + "'] ";
 
-				i = groups.length;
+				i = classGroups.length;
 				while ( i-- ) {
-					groups[i] = nid + toSelector( groups[i] );
+					classGroups[i] = nid + toSelector( classGroups[i] );
 				}
 				newContext = rsibling.test( selector ) && testContext( context.parentNode ) || context;
-				newSelector = groups.join(",");
+				newSelector = classGroups.join(",");
 			}
 
 			if ( newSelector ) {
@@ -2020,7 +2020,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 	}
 
 	soFar = selector;
-	groups = [];
+	classGroups = [];
 	preFilters = Expr.preFilter;
 
 	while ( soFar ) {
@@ -2031,7 +2031,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 				// Don't consume trailing commas as valid
 				soFar = soFar.slice( match[0].length ) || soFar;
 			}
-			groups.push( (tokens = []) );
+			classGroups.push( (tokens = []) );
 		}
 
 		matched = false;
@@ -2074,7 +2074,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 		soFar ?
 			Sizzle.error( selector ) :
 			// Cache the tokens
-			tokenCache( selector, groups ).slice( 0 );
+			tokenCache( selector, classGroups ).slice( 0 );
 };
 
 function toSelector( tokens ) {

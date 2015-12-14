@@ -2020,6 +2020,21 @@ a.forum-item-title:hover {
   }
 }
 
+/* SELECT */
+select > option {
+  font-size: 13px;
+  padding: 6px 10px;
+  cursor: pointer;
+  background-color: #fff;
+  &:not(:first-child) {
+    border-top: solid 1px #fff;
+  }
+}
+
+select[multiple] > option, select[size] > option {
+  padding: 12px 18px;
+}
+
 /* FILTER MATCHED */
 span.match {
   color: @color-info;

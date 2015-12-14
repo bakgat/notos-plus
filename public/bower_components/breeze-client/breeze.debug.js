@@ -13576,7 +13576,7 @@ var EntityManager = (function () {
 
     var result = [];
     // TODO: mapMany
-    groups.forEach(function (group) {
+    classGroups.forEach(function (group) {
       result.push.apply(result, group._entities.filter(newFilterFunc));
     });
 

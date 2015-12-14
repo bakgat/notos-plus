@@ -76,13 +76,13 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
 .controller('AccordionController', ['$scope', '$attrs', 'accordionConfig', function ($scope, $attrs, accordionConfig) {
 
   // This array keeps track of the accordion groups
-  this.groups = [];
+  this.classGroups = [];
 
   // Ensure that all the groups in this accordion are closed, unless close-others explicitly says not to
   this.closeOthers = function(openGroup) {
     var closeOthers = angular.isDefined($attrs.closeOthers) ? $scope.$eval($attrs.closeOthers) : accordionConfig.closeOthers;
     if ( closeOthers ) {
-      angular.forEach(this.groups, function (group) {
+      angular.forEach(this.classGroups, function (group) {
         if ( group !== openGroup ) {
           group.isOpen = false;
         }
@@ -93,7 +93,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
   // This is called from the accordion-group directive to add itself to the accordion
   this.addGroup = function(groupScope) {
     var that = this;
-    this.groups.push(groupScope);
+    this.classGroups.push(groupScope);
 
     groupScope.$on('$destroy', function (event) {
       that.removeGroup(groupScope);
@@ -102,9 +102,9 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
 
   // This is called from the accordion-group directive when to remove itself
   this.removeGroup = function(group) {
-    var index = this.groups.indexOf(group);
+    var index = this.classGroups.indexOf(group);
     if ( index !== -1 ) {
-      this.groups.splice(index, 1);
+      this.classGroups.splice(index, 1);
     }
   };
 

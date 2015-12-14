@@ -27,6 +27,7 @@
         vm.image_changed = false;
 
         vm.website = null;
+
         vm.tags = [];
 
         vm.cancel = cancel;
@@ -109,7 +110,7 @@
                 vm.loading = false;
             }
 
-            function websiteError(error){
+            function websiteError(error) {
                 logger.error('Error while getting website id= ' + val + '; ' + error);
                 gotoWebsites();
             }
@@ -166,6 +167,5 @@
             WebsiteDraft.draft(vm.website);
             $state.go('library.websites.detail.objectives');
         }
-
     }
 })();

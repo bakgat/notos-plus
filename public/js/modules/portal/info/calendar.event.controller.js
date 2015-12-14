@@ -10,7 +10,7 @@
         .controller('CalendarEventController', CalendarEventController);
 
     /* @ngInject */
-    function CalendarEventController(common, config, CalendarEvent, $state, $stateParams, moment) {
+    function CalendarEventController(common, config, CalendarEvent, $state, $stateParams, moment, Group) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -20,6 +20,7 @@
         vm.cancel = cancel;
         vm.isSaving = false;
         vm.event = null;
+        vm.classGroups = [];
 
         Object.defineProperty(vm, 'canSave', {get: canSave});
 
@@ -31,7 +32,19 @@
 
         function activate() {
             getRequestedEvent();
-            common.$broadcast(ev.controllerActivateSuccess);
+            getGroups().then(function () {
+                common.$broadcast(ev.controllerActivateSuccess);
+            });
+
+        }
+
+        function getGroups() {
+            return Group.ofKind('classgroups').getList().then(groupsLoaded);
+
+            function groupsLoaded(response) {
+                vm.classGroups = response;
+                return vm.classGroups;
+            }
         }
 
         function getRequestedEvent() {

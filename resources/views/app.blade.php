@@ -14,7 +14,7 @@
             display: none!important;
         }
     </style>
-
+    @include('common.favicon')
     @include('common.stylesheets')
 </head>
 

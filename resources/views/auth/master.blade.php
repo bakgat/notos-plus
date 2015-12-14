@@ -7,6 +7,7 @@
 
     <title>NOTOSPLUS | Aanmelden</title>
 
+    @include('common.favicon')
     @include('common.stylesheets')
 
 </head>

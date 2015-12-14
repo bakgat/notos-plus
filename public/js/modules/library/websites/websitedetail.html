@@ -18,7 +18,7 @@
                                     Annuleren
                                 </button>
                                 <button class="btn btn-info btn-form-md" data-ng-click="vm.save()"
-                                        data-ng-disabled="(!detail.$dirty || !detail.$valid) && !vm.objectives_changed && !vm.image_changed">
+                                        data-ng-disabled="(!detail.$dirty || !detail.$valid || !vm.urlUnique) && !vm.objectives_changed && !vm.image_changed ">
                                     <fa name="save"></fa>
                                     0pslaan
                                 </button>
@@ -47,10 +47,11 @@
                                 <div class="col-lg-10">
                                     <div class="input-group">
                                         <input type="text" placeholder="http://" class="form-control" required
-                                               data-ng-model="vm.website.url">
+                                               data-ng-model="vm.website.url"  >
                                         <span class="input-group-btn">
                                             <a class="btn btn-primary"
-                                                data-ng-href="{{vm.website.url}}" target="_blank" data-ng-disabled="!vm.website.url">
+                                                data-ng-href="{{vm.website.url}}" target="_blank"
+                                               data-ng-disabled="!vm.website.url || !vm.urlUnique">
                                                 <i class="fa fa-external-link"></i></a>
                                         </span>
                                     </div>
