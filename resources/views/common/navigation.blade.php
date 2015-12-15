@@ -95,7 +95,7 @@
                 <!-- .LIBRARY -->
             @endif
 
-            @if(Auth::user()->is('sa') &&
+            @if(Auth::user()->is('portal_moderator|sa') &&
                 (str_contains(Request::server('SERVER_NAME'), 'klimtoren') ||
                 str_contains(Request::server('SERVER_NAME'), 'localhost')))
                 <li ng-class="{active: $state.includes('portal')}">
