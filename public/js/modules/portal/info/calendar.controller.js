@@ -88,7 +88,7 @@
         }
 
         function refresh() {
-            vm.events = [];
+
             getCalendarList(true);
         }
     }

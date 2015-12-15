@@ -43,7 +43,7 @@
         activate();
         ////////////////////////
         function activate() {
-
+            vm.loading = true;
             preloadTags();
             preloadAuthors();
             preloadPublishers();
