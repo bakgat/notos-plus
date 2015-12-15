@@ -43,7 +43,7 @@
         activate();
         ////////////////////////
         function activate() {
-            vm.loading = true;
+
             preloadTags();
             preloadAuthors();
             preloadPublishers();
@@ -96,6 +96,8 @@
         }
 
         function getRequestedBook() {
+            vm.loading = true;
+
             var val = $stateParams.id;
             if (val === 'new') {
                 vm.book = Book.one();
