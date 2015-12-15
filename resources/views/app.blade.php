@@ -11,7 +11,7 @@
         /* This helps the ng-show/ng-hide animations start at the right place. */
         /* Since Angular has this but needs to load, this gives us the class early. */
         .ng-hide {
-            display: none!important;
+            display: none !important;
         }
     </style>
     @include('common.favicon')
@@ -21,10 +21,15 @@
 <body ng-controller="ShellController as shell">
 <div id="splash-page" data-ng-show="shell.showSplash" class="dissolve-animation">
     <div class="page-splash">
+
         <div class="page-splash-message">
+            <div class="sk-spinner sk-spinner-wandering-cubes">
+                <div class="sk-cube1"></div>
+                <div class="sk-cube2"></div>
+            </div>
             noTos+
-            <p class="font-xs">bezig met laden...</p>
         </div>
+
     </div>
 </div>
 @include('common.content')

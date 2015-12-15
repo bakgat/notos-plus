@@ -31,7 +31,7 @@
                         <div class="clearfix"></div>
                     </div>
 
-                    <div class="ibox-content inspinia-timeline">
+                    <div class="ibox-content inspinia-timeline" nt-spinner spinner-show="vm.loading">
                         <div class="timeline-item" data-ng-repeat="group in vm.events">
                             <div class="row">
                                 <div class="col-sm-3 date">
@@ -41,19 +41,22 @@
                                 </div>
                                 <div class="col-sm-9 content">
                                     <div class="list-group">
-                                        <a class="list-group-item"data-ng-repeat="event in group.events" data-ng-click="vm.gotoEvent(event)">
-                                            <h3 class="list-group-item-heading" >
+                                        <a class="list-group-item" data-ng-repeat="event in group.events"
+                                           data-ng-click="vm.gotoEvent(event)">
+                                            <h3 class="list-group-item-heading">
                                                 <small data-ng-bind="event.start | date:'HH.mmu'"></small>
                                                 <small data-ng-if="event.end"> - {{event.end | date : 'HH.mmu'}}</small>
                                                 <small>:</small>
                                                 <span data-ng-bind="event.name"></span>
                                             </h3>
 
-                                            <p data-ng-if="event.description" data-ng-bind="event.description" class="list-group-item-text"></p>
+                                            <p data-ng-if="event.description" data-ng-bind="event.description"
+                                               class="list-group-item-text"></p>
 
                                             <p data-ng-if="event.groups.length" class="small list-group-item-text">Voor:
                                                 <span data-ng-repeat="group in event.groups">
-                                                    {{group.last_name}}<span class="separator" data-ng-if="!$last">, </span>
+                                                    {{group.last_name}}<span class="separator"
+                                                                             data-ng-if="!$last">, </span>
                                                 </span>
                                             </p>
                                         </a>
