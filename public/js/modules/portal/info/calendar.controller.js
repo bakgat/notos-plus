@@ -43,7 +43,7 @@
             function calendarComplete(response) {
                 vm.cachedEvents = response;
                 vm.events = convertTo(response, 'start', true);
-                vm.loading = true;
+                vm.loading = false;
                 return vm.events;
             }
         }
