@@ -52,7 +52,7 @@
         function makeSpinner() {
             var wrapper = angular.element('<div/>').addClass('loading m-b-md m-t-md');
             var spinner = angular.element('<div>').addClass('sk-spinner sk-spinner-cube-grid');
-            for (var i = 0; i < 8; i++) {
+            for (var i = 0; i < 9; i++) {
                 var cube = angular.element('<div>').addClass('sk-cube');
                 spinner.append(cube);
             }
