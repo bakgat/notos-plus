@@ -77,15 +77,15 @@
 
                                 <div class="pull-left m-md">
                                     <select class="select-small" multiple size="5"
-                                            data-ng-multiple="true" data-ng-model="vm.event.classgroups"
-                                            data-ng-options="c.last_name for c in vm.classGroups">
+                                            data-ng-multiple="true" data-ng-model="vm.event.groups"
+                                            data-ng-options="c.last_name for c in vm.classGroups track by c.id">
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-12" data-ng-if="vm.event.classgroups.length > 0">
+                            <div class="col-md-12" data-ng-if="vm.event.groups.length > 0">
                                 <small>
                                     Geselecteerde groepen:
-                                    <span data-ng-repeat="g in vm.event.classgroups">
+                                    <span data-ng-repeat="g in vm.event.groups">
                                         {{g.last_name}}<span data-ng-if="!$last">, </span>
                                     </span>
                                 </small>
