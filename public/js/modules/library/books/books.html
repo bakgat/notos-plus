@@ -19,9 +19,11 @@
                         <div class="col-sm-4 col-xs-12">
                             <div class="pull-right">
                                 <span class="small">{{vm.books.length}} boeken</span>
+
                                 <a class="btn btn-info btn-xs" data-ng-click="vm.refresh()">
                                     <i class="fa fa-refresh"></i> <span>Vernieuwen</span>
                                 </a>
+
                                 <a class="btn btn-info btn-xs" ui-sref="library.books.detail({id:'new'})">
                                     <i class="fa fa-plus"></i> <span>Boek toevoegen</span>
                                 </a>
