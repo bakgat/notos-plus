@@ -11,20 +11,30 @@
             <div class="row">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
-                        <div class="col-sm-8 hidden-xs">
+                        <div class="col-sm-6 col-md-8 hidden-xs">
                             <input class="input-md form-control"
                                    data-ng-model="vm.filter.terms"
                                    placeholder="zoeken...">
                         </div>
-                        <div class="col-sm-4 col-xs-12">
-                            <div class="pull-right">
-                                <span class="small">{{vm.books.length}} boeken</span>
 
-                                <a class="btn btn-info btn-xs" data-ng-click="vm.refresh()">
+                        <div class="col-xs-12" data-ng-show="vm.xssearch">
+                            <input class="input-md form-control" data-ng-model="vm.filter.terms"
+                                   placeholder="zoeken...">
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xs-12">
+                            <div class="hidden-sm hidden-md hidden-lg pull-right">
+                                <button class="btn btn-info btn-xs m-l-xs" data-ng-click="vm.xssearch=!vm.xssearch"><i
+                                        class="fa fa-search"></i></button>
+                            </div>
+
+                            <div class="pull-right">
+                                <span class="small hidden-xs hidden-sm">{{vm.books.length}} boeken</span>
+
+                                <a class="btn btn-info btn-xs hidden-xs" data-ng-click="vm.refresh()">
                                     <i class="fa fa-refresh"></i> <span>Vernieuwen</span>
                                 </a>
 
-                                <a class="btn btn-info btn-xs" ui-sref="library.books.detail({id:'new'})">
+                                <a class="btn btn-info btn-xs" data-ng-show="!vm.xssearch" ui-sref="library.books.detail({id:'new'})">
                                     <i class="fa fa-plus"></i> <span>Boek toevoegen</span>
                                 </a>
                             </div>
@@ -61,7 +71,8 @@
                                 <td class="hidden-xs">
                                     <ul class="list-unstyled list-inline">
                                         <li data-ng-repeat="publisher in book.publishers">
-                                            <a data-ng-bind="publisher.full_name" data-ng-click="vm.byPublisher(publisher)"></a>
+                                            <a data-ng-bind="publisher.full_name"
+                                               data-ng-click="vm.byPublisher(publisher)"></a>
                                             <span data-ng-if="!$last">, </span>
                                         </li>
                                     </ul>
