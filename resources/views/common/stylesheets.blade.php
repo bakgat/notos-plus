@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="/bower_components/metisMenu/dist/metisMenu.min.css">
 <link rel="stylesheet" href="/bower_components/ng-tags-input/ng-tags-input.min.css">
 <link rel="stylesheet" href="/bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css">
+<link rel="stylesheet" href="/bower_components/ion.rangeslider/css/ion.rangeSlider.css">
+<link rel="stylesheet" href="/bower_components/ion.rangeslider/css/ion.rangeSlider.skinFlat.css">
 <!-- end inject vendor:stylesheets -->
 
 <!-- inject app:stylesheets -->

@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content" data-nt-spinner data-spinner-show="vm.loading">
-                        <form class="form-horizontal" ng-show="!vm.loading" name="detail" >
+                        <form class="form-horizontal" ng-show="!vm.loading" name="detail">
                             <div class="">
                                 <button class="btn btn-info btn-form-md" data-ng-click="vm.cancel()">
                                     <fa name="undo"></fa>
@@ -42,13 +42,23 @@
 
                             <!-- Description -->
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Inhoud</label>
+                                <label class="col-lg-2 control-label">Beschrijving</label>
 
                                 <div class="col-lg-10">
                                     <textarea class="form-control" data-ng-model="vm.game.description"></textarea>
                                 </div>
                             </div>
                             <!-- .description -->
+
+                            <!-- age range -->
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Leeftijd</label>
+
+                                <div class=" col-lg-10 m-b-md">
+                                    <div ion-range-slider range-options="vm.ageRangeOptions"></div>
+                                </div>
+                            </div>
+                            <!-- .age range -->
 
 
                             <!-- publisher -->
@@ -79,6 +89,7 @@
                             </div>
                             <!-- .tags -->
 
+
                             <!-- image -->
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">
@@ -92,8 +103,8 @@
                                     <a data-ng-click="vm.insertImage()" class="thumbnail" style="max-width:150px;">
                                         <img ng-src="{{vm.game.image.thumbpath || '/img/icons/icon-chain-64.png'}}">
                                     </a>
-                            </div>
-                            <!-- .image -->
+                                </div>
+                                <!-- .image -->
                         </form>
                     </div>
                 </div>

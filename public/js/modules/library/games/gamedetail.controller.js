@@ -23,6 +23,16 @@
 
         vm.image_changed = false;
 
+        vm.ageRangeOptions = {
+            min: 0,
+            max: 16,
+            type: 'double',
+            postfix: ' jaar',
+            max_postfix: '+',
+            prettify: false,
+            hasGrid: true
+        }
+
         vm.game = null;
         vm.publishers = [];
         vm.tags = [];

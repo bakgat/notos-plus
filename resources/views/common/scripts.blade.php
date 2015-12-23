@@ -30,6 +30,7 @@
 <script src="/bower_components/toastr/toastr.min.js"></script>
 <script src="/bower_components/moment/min/moment-with-locales.min.js"></script>
 <script src="/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<script src="/bower_components/ion.rangeslider/js/ion.rangeSlider.min.js"></script>
 <!-- end inject vendor:scripts -->
 
 <script src="/bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>

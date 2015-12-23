@@ -23,10 +23,21 @@
 
         vm.image_changed = false;
 
+        vm.ageRangeOptions = {
+            min: 0,
+            max: 16,
+            type: 'double',
+            postfix: ' jaar',
+            max_postfix: '+',
+            prettify: false,
+            hasGrid: true
+        }
+
         vm.book = null;
         vm.authors = [];
         vm.publishers = [];
         vm.tags = [];
+
 
         vm.cancel = cancel;
         vm.save = save;
@@ -185,7 +196,7 @@
                     Dialog.confirmationDialog('Isbn gevonden',
                             '<p class="lead txt-warning">Een boek met isbn <strong>' + isbn + '</strong> bestaal al.<br/>' +
                             'Wilt u het boek "<strong>' + response.name + '</strong>" updaten?</p>',
-                            'Ja', 'Nee')
+                        'Ja', 'Nee')
                         .then(confirmation);
                 }
                 function confirmation() {
