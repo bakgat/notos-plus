@@ -52,6 +52,34 @@
                 }
             },
             {
+                state: 'library.games',
+                config: {
+                    url: '/games',
+                    views: {
+                        'content@': {
+                            templateUrl: 'js/modules/library/games/games.html',
+                            controller: 'GamesController',
+                            controllerAs: 'vm'
+                        }
+                    },
+                    title: 'Spellen'
+                }
+            },
+            {
+                state: 'library.games.detail',
+                config: {
+                    url: '/:id',
+                    views: {
+                        'content@': {
+                            templateUrl: 'js/modules/library/games/gamedetail.html',
+                            controller: 'GameDetailController',
+                            controllerAs: 'vm'
+                        }
+                    },
+                    title: 'Spel bewerken'
+                }
+            },
+            {
                 state: 'library.websites',
                 config: {
                     url: '/websites',

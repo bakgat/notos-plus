@@ -21,8 +21,8 @@
                                 <a class="btn btn-info btn-xs" data-ng-click="vm.refresh()">
                                     <i class="fa fa-refresh"></i> <span>Vernieuwen</span>
                                 </a>
-                                <a class="btn btn-info btn-xs" ui-sref="library.books.detail({id:'new'})">
-                                    <i class="fa fa-plus"></i> <span>Boek toevoegen</span>
+                                <a class="btn btn-info btn-xs" ui-sref="library.games.detail({id:'new'})">
+                                    <i class="fa fa-plus"></i> <span>Spel toevoegen</span>
                                 </a>
                             </div>
                         </div>
@@ -31,33 +31,24 @@
                             <tr>
                                 <th class="hidden-xs"></th>
                                 <th>Titel</th>
-                                <th class="hidden-xs">Auteur(s)</th>
                                 <th class="hidden-xs">Uitgeverij</th>
                             </tr>
                             </thead>
                             <tbody>
 
                             <tr data-ng-show="!vm.loading"
-                                data-ng-repeat="book in vm.filteredBooks | orderBy:'-id' track by book.id">
+                                data-ng-repeat="game in vm.filteredGames | orderBy:'-id' track by game.id">
                                 <td class="hidden-xs" style="width:100px;">
-                                    <a class="thumbnail" data-ng-if="book.image.thumbpath"
-                                       ng-click="vm.gotoBook(book)">
-                                        <img ng-src="{{book.image.thumbpath}}"
+                                    <a class="thumbnail" data-ng-if="game.image.thumbpath"
+                                       ng-click="vm.gotoGame(game)">
+                                        <img ng-src="{{game.image.thumbpath}}"
                                              style="max-width:100px; max-height:50px;">
                                     </a>
                                 </td>
-                                <td><a data-ng-bind="book.name" data-ng-click="vm.gotoBook(book)"></a></td>
+                                <td><a data-ng-bind="game.name" data-ng-click="vm.gotoGame(game)"></a></td>
                                 <td class="hidden-xs">
                                     <ul class="list-unstyled list-inline">
-                                        <li data-ng-repeat="author in book.authors">
-                                            <a data-ng-bind="author.full_name" data-ng-click="vm.byAuthor(author)"></a>
-                                            <span data-ng-if="!$last">, </span>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td class="hidden-xs">
-                                    <ul class="list-unstyled list-inline">
-                                        <li data-ng-repeat="publisher in book.publishers">
+                                        <li data-ng-repeat="publisher in game.publishers">
                                             <a data-ng-bind="publisher.full_name" data-ng-click="vm.byPublisher(publisher)"></a>
                                             <span data-ng-if="!$last">, </span>
                                         </li>

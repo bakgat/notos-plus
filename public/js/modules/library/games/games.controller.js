@@ -1,26 +1,26 @@
 /**
  * notosplus.library
- * CONTROLLER: BooksController
+ * CONTROLLER: GamesController
  */
 (function () {
     'use strict';
 
     angular
         .module('notosplus.library')
-        .controller('BooksController', BooksController);
+        .controller('GamesController', GamesController);
 
     /* @ngInject */
-    function BooksController(common, config, Book, $state, $scope, SearchBooksFilter) {
+    function GamesController(common, config, Game, $state, $scope, SearchGamesFilter) {
         /*jshint validthis: true */
         var vm = this;
 
-        vm.books = [];
-        vm.filteredBooks = [];
+        vm.games = [];
+        vm.filteredGames = [];
         vm.filter = {
             terms: null
         }
 
-        vm.gotoBook = gotoBook;
+        vm.gotoGame = gotoGame;
 
         vm.loading = false;
         vm.refresh = refresh;
@@ -33,41 +33,41 @@
         $scope.$watch('vm.filter', doFilter, true);
 
         function activate() {
-            getBooks();
+            getGames();
             common.$broadcast(events.controllerActivateSuccess);
         }
 
-        function getBooks(forceRefresh) {
+        function getGames(forceRefresh) {
             vm.loading = true;
 
             if (forceRefresh) {
-                if (vm.books) {
-                    vm.books.clearCache();
+                if (vm.games) {
+                    vm.games.clearCache();
                 }
             }
-            Book.getList().then(function (data) {
-                vm.books = vm.filteredBooks = data;
+            Game.getList().then(function (data) {
+                vm.games = vm.filteredGames = data;
                 vm.loading = false;
 
-                return vm.books;
+                return vm.games;
             });
         }
 
-        function gotoBook(book) {
-            if(book && book.id) {
-                $state.go('library.books.detail', {id:book.id});
+        function gotoGame(game) {
+            if(game && game.id) {
+                $state.go('library.games.detail', {id:game.id});
             }
         }
 
         function refresh() {
-            getBooks(true);
+            getGames(true);
         }
 
         function doFilter() {
             if (vm.filter.terms && vm.filter.terms !== '') {
-                vm.filteredBooks = SearchBooksFilter(vm.books, vm.filter.terms);
+                vm.filteredGames = SearchGamesFilter(vm.games, vm.filter.terms);
             } else {
-                vm.filteredBooks = vm.books;
+                vm.filteredGames = vm.games;
             }
         }
     }
