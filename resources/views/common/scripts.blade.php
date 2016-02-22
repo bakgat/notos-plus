@@ -35,6 +35,7 @@
 
 <script src="/bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>
 
+<script src="/js/plugins/rangeslider/ionRangeSlider.js"></script>
 <!-- inject app:scripts -->
 <script src="/js/app.min.js"></script>
 <!-- end inject app:scripts -->

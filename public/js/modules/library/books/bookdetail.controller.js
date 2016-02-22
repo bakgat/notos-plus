@@ -10,7 +10,7 @@
         .controller('BookDetailController', BookDetailController);
 
     /* @ngInject */
-    function BookDetailController($state, common, config, $stateParams, _,
+    function BookDetailController($state, $scope, common, config, $stateParams, _, $timeout,
                                   Book, Dialog, Tag, Author, Publisher) {
         /*jshint validthis: true */
         var vm = this;
@@ -22,16 +22,7 @@
         vm.isSaving = false;
 
         vm.image_changed = false;
-
-        vm.ageRangeOptions = {
-            min: 0,
-            max: 16,
-            type: 'double',
-            postfix: ' jaar',
-            max_postfix: '+',
-            prettify: false,
-            hasGrid: true
-        }
+        vm.range_changed = false;
 
         vm.book = null;
         vm.authors = [];
@@ -48,6 +39,8 @@
         vm.loadTags = loadTags;
         vm.findIsbn = findIsbn;
         vm.insertImage = insertImage;
+
+        vm.ageRangeChange = ageRangeChanged;
 
         Object.defineProperty(vm, 'canSave', {get: canSave});
 
@@ -123,6 +116,8 @@
             function bookCompleted(data) {
                 vm.book = data;
                 vm.loading = false;
+                if(!vm.book.max_age) vm.book.max_age = 16;
+                if(!vm.book.min_age) vm.book.min_age = 0;
                 return vm.book;
             }
         }
@@ -182,6 +177,7 @@
         }
 
         function cancel() {
+
             gotoBooks();
         }
 
@@ -213,6 +209,14 @@
                 vm.book.image = response.file;
                 vm.image_changed = true;
             }
+        }
+
+        function ageRangeChanged(range) {
+            vm.book.min_age = range.from;
+            vm.book.max_age = range.to;
+            $timeout(function() {
+                vm.range_changed = true;
+            });
         }
 
     }

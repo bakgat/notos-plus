@@ -46,6 +46,7 @@
                                 <th>Titel</th>
                                 <th class="hidden-xs">Auteur(s)</th>
                                 <th class="hidden-xs">Uitgeverij</th>
+                                <th class="hidden-xs">Leeftijd</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -76,6 +77,9 @@
                                             <span data-ng-if="!$last">, </span>
                                         </li>
                                     </ul>
+                                </td>
+                                <td class="hidden-xs">
+                                    <span data-ng-if="book.min_age || book.max_age">{{book.min_age}} - {{book.max_age}} jaar</span>
                                 </td>
                             </tr>
                             </tbody>

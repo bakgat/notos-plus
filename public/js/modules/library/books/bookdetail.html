@@ -18,7 +18,7 @@
                                     Annuleren
                                 </button>
                                 <button class="btn btn-info btn-form-md" data-ng-click="vm.save()"
-                                        data-ng-disabled="(!detail.$dirty || !detail.$valid) && !vm.image_changed">
+                                        data-ng-disabled="(!detail.$dirty || !detail.$valid) && !vm.image_changed && !vm.range_changed">
                                     <fa name="save"></fa>
                                     0pslaan
                                 </button>
@@ -110,7 +110,9 @@
                                 <label class="col-lg-2 control-label">Leeftijd</label>
 
                                 <div class=" col-lg-10 m-b-md">
-                                    <div ion-range-slider range-options="vm.ageRangeOptions"></div>
+                                    <ionslider min="0" max="16" from="vm.book.min_age" to="vm.book.max_age"
+                                                      postfix="jaar" max-postfix="+" prettify="false" has-grid="true"
+                                                      type="double" on-change="vm.ageRangeChange"></ionslider>
                                 </div>
                             </div>
                             <!-- .age range -->

@@ -16,6 +16,7 @@ angular
         'datePicker',
         'ngFileUpload',
         'ngIOS9UIWebViewPatch', //patch for angular 1.4.x in iOS9 (digest loop)
+        'ionSlider',
 
         //cross app modules
         'blocks.exception',
